@@ -1,0 +1,54 @@
+body section {
+	padding: 8.2rem 0;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.semester-nav {
+	padding: 0;
+	padding-top: 5.1rem;
+}
+
+.eval-list-container {
+	display: grid;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.eval-list-container h5 {
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.eval_list_item {
+	display: inline-flex;
+	border-bottom: 1px solid #dadada;
+	align-items: center;
+	justify-content: space-between;
+	word-break: keep-all;
+	padding: 10px 0;
+	width: 100%;
+}
+
+.do-eval-btn {
+	box-shadow: 1px 1px 2px;
+	border: 1px solid #443a4e;
+	border-radius: 8px;
+	width: 20%;
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-color: #707070;
+}
+
+.do-eval-btn a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.8rem;
+}
+
+.do-eval-btn:active {
+	transform: scale(0.95);
+}
+
+.do-eval-btn div {
+	text-align: center;
+	padding: 3px;
+}

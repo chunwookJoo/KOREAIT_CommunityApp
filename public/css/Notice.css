@@ -1,0 +1,25 @@
+/* 학교 공지사항
+SchoolNotice */
+
+body {
+	margin: 0;
+}
+section h1 {
+	padding: 2rem 0;
+	word-break: keep-all;
+	font-weight: bold;
+}
+section div {
+	padding-bottom: 1rem;
+}
+section div small {
+	font-weight: bold;
+}
+.writeday {
+	border-bottom: 1px solid #cfcfcf;
+	display: flex;
+	justify-content: space-between;
+}
+.content {
+	padding-top: 1rem;
+}

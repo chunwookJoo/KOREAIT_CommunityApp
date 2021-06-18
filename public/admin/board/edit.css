@@ -1,0 +1,101 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 70vw;
+	margin: 0 auto;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+h2 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 3rem 0 1rem 0;
+	border-bottom: 1px solid #000;
+	width: 100%;
+}
+h2 span {
+	display: inline-flex;
+}
+section {
+	width: 45%;
+	margin: 0 auto;
+	text-align: center;
+}
+.checkbox-select-menu {
+	padding: 0.4rem 0;
+}
+.checkbox-select-menu div {
+	width: 500px;
+}
+.checkbox-select-menu p {
+	margin: 0 0 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+#board_group {
+	width: 100%;
+	padding: 6px;
+	background-color: transparent;
+}
+#college,
+#depart {
+	width: 100%;
+	padding: 6px;
+	background-color: transparent;
+}
+form div div {
+	float: left;
+	font-weight: bold;
+	padding-bottom: 8px;
+}
+.board-id {
+	width: 4em;
+	text-align: center;
+}
+#board_title {
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding: 6px;
+	width: 97%;
+}
+#board_content {
+	width: 97%;
+	font-size: 16px;
+	padding: 6px;
+}
+
+@media screen and (max-width: 1500px) {
+	section {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	section {
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	section {
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	section {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	section {
+		width: 90%;
+	}
+}

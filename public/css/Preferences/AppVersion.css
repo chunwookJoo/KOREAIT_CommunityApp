@@ -1,0 +1,23 @@
+.appversion-logo-img {
+	text-align: center;
+	padding: 5rem 0;
+}
+.appversion-logo-img img {
+	border: 1px solid #dadada;
+	border-radius: 30%;
+	box-shadow: 4px 4px 5px 0px rgb(0 0 0 / 50%);
+}
+.appversion-logo-img div {
+	padding-top: 4px;
+	font-size: small;
+	font-weight: bold;
+}
+footer {
+	border-top: 2px solid #c8c8c8;
+	font-family: "Do Hyeon", sans-serif;
+}
+footer div {
+	text-align: center;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #d7d7d7;
+}

@@ -1,0 +1,154 @@
+html,
+body {
+	margin: 0;
+	box-sizing: border-box;
+	height: 100%;
+	position: relative;
+}
+.header {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 12em 2em 2rem 2em;
+	align-content: center;
+	text-align: center;
+	font-family: monospace;
+	color: #1d4040;
+}
+h1 {
+	font-size: 38px;
+	font-weight: bold;
+	margin: 0;
+}
+.back-color {
+	z-index: -1;
+	position: absolute;
+	top: 44%;
+	left: 50%;
+	width: 24rem;
+	height: 36rem;
+	background-color: #fff;
+	box-shadow: 3px 3px 8px;
+	transform: translate(-50%, -50%);
+	margin-top: -2.5rem;
+}
+section {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+section form div {
+	padding-bottom: 14px;
+}
+#submit {
+	width: 100%;
+}
+.radioBtn {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: large;
+}
+.nav {
+	box-sizing: border-box;
+	width: 12rem;
+	height: calc(100% - 6rem);
+	padding-left: 1em;
+	float: left;
+	overflow: scroll;
+	scrollbar-width: none; /* Firefox */
+}
+.nav::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+
+.section {
+	box-sizing: border-box;
+	width: calc(100% - 12rem);
+	height: calc(100% - 6rem);
+	float: left;
+	overflow: scroll;
+	scrollbar-width: none; /* Firefox */
+}
+.section::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+
+#frame {
+	box-sizing: border-box;
+	width: calc(100% - 0.33em);
+	height: calc(100% - 0.33em);
+}
+
+.footer {
+	box-sizing: border-box;
+	clear: both;
+}
+
+.hidden {
+	display: none;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-al-start {
+	align-items: flex-start;
+}
+
+.flex-al-end {
+	align-items: flex-end;
+}
+
+.flex-al-center {
+	align-items: center;
+}
+
+.flex-al-baseline {
+	align-items: baseline;
+}
+
+.flex-ju-start {
+	justify-content: flex-start;
+}
+
+.flex-ju-end {
+	justify-content: flex-end;
+}
+
+.flex-ju-center {
+	justify-content: center;
+}
+
+.flex-ju-between {
+	justify-content: space-between;
+}
+
+.flex-ju-around {
+	justify-content: space-around;
+}
+
+.flex-ju-evenly {
+	justify-content: space-evenly;
+}
+
+.w-300 {
+	width: 300px;
+}
+
+.h-5 {
+	height: 5px;
+}
+
+.h-10 {
+	height: 10px;
+}
+
+.h-400 {
+	height: 400px;
+}

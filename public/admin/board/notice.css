@@ -1,0 +1,22 @@
+@import url("/admin/log/app.css");
+
+.kategorie-search-form {
+	display: flex;
+	padding-top: 1rem;
+}
+.kategorie-form,
+.search-form {
+	display: inline-block;
+	width: 50%;
+	margin: 0;
+}
+.search-form div {
+	float: right;
+}
+.kategorie-form select {
+	padding: 6px;
+}
+#search_key,
+#search_value {
+	padding: 6px 10px;
+}

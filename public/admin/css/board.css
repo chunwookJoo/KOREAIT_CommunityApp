@@ -1,0 +1,134 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 70vw;
+	margin: 0 auto;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+h2 {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	padding: 3rem 0 1rem 0;
+	width: 80%;
+}
+h2 span {
+	display: inline-block;
+}
+.search-form form {
+	float: right;
+	padding-bottom: 1rem;
+}
+section {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 0.9rem;
+}
+#board_group,
+#search_key,
+#search_value {
+	padding: 6px;
+}
+table {
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+	border-collapse: collapse;
+	border: 2px solid #335d63;
+}
+table thead {
+	font-size: 1.2rem;
+	background-color: powderblue;
+}
+table thead tr {
+	height: 3rem;
+	border-bottom: 2px solid #5c908b;
+}
+table tbody tr:hover {
+	background-color: #dadada;
+	cursor: pointer;
+}
+table tbody tr td {
+	padding: 0.45rem 0;
+	border-bottom: 1px solid #ddd;
+}
+table .tbody label {
+	color: #ff7b7b;
+}
+table .tbody span {
+	color: #a2a2a2;
+}
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+a:link {
+	color: #4b70fd;
+}
+a:visited {
+	color: #8c59b9;
+}
+
+tr th {
+	text-align: center;
+}
+.board-id {
+	width: 4em;
+	text-align: center;
+}
+
+tbody tr .board-title {
+	width: 20em;
+	text-align: left;
+}
+
+.board-author {
+	width: 6em;
+	text-align: center;
+}
+
+.board-readnum {
+	width: 4em;
+	text-align: center;
+}
+
+.board-time {
+	width: 7em;
+	text-align: center;
+}
+#boardContent {
+	width: calc(100% - 21em);
+	margin: 1em 0;
+	border: 1px solid lightgray;
+	padding: 0.5em;
+}
+
+#boardButtons {
+	width: calc(100% - 20em);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 1700px) {
+	body {
+		width: 80vw;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	body {
+		width: 90vw;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	body {
+		width: 1100px;
+	}
+}

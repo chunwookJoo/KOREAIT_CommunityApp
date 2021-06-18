@@ -1,0 +1,38 @@
+section {
+	padding: 6rem 1rem 5rem 1rem;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+ul li {
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid #cfcfcf;
+	line-height: 1.4rem;
+}
+
+.company-name {
+	font-size: 0.8rem;
+	color: #909090;
+}
+
+.notification-title {
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.pay-writeday {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.9rem;
+}

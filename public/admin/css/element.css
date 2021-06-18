@@ -1,0 +1,43 @@
+.submit {
+	all: unset;
+	background-color: #335d63;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	padding: 6px 8px;
+	font-size: 16px;
+	box-shadow: 0px 2px 1px #000;
+	cursor: pointer;
+	text-align: center;
+}
+.submit:active {
+	transform: scale(0.95);
+}
+
+.page-number {
+	display: flex;
+	padding-top: 3rem;
+	justify-content: center;
+}
+.page-number div {
+	display: flex;
+	width: auto;
+	align-items: center;
+	border-radius: 3px;
+	border: 1px solid #7885ca;
+}
+.page-number a {
+	font-size: 16px;
+	padding: 8px 16px;
+	display: inline-block;
+	color: #000;
+}
+.page-number div a:hover {
+	background-color: #aaaaaa;
+}
+.page-number div .on {
+	background-color: #ddd;
+}
+.page-number div span {
+	background-color: #aaaaaa;
+}

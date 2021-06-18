@@ -1,0 +1,38 @@
+h5 {
+	padding-top: 1.8rem;
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+}
+
+section footer {
+	padding: 2.4rem 0;
+}
+
+section footer p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	word-break: keep-all;
+	padding-top: 1rem;
+}
+
+section footer p span {
+	font-size: 24px;
+}
+
+section footer p .btn {
+	border: 1px solid #764ba2;
+	background-color: #764ba2;
+	color: #fff;
+	width: 100%;
+}
+
+section footer #floatingTextarea2 {
+	width: 100%;
+	height: 20vh;
+	border: 1px solid #cfcfcf;
+	border-radius: 8px;
+}
