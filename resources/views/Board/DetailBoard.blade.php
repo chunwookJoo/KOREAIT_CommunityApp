@@ -149,9 +149,7 @@
 									type="button"
 									class="btn btn-primary"
 									id="delete-confirm"
-									onclick="delete_comment({{
-										$student_id
-									}}, {{ $comment['reply_id'] }})"
+									onclick="delete_comment({{$student_id}}, {{ $comment['reply_id'] }})"
 									>
 									삭제
 								</a>

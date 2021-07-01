@@ -128,7 +128,7 @@ MainPage.blade */
 
 .list-group {
 	list-style: none;
-	padding-top: 7.7rem;
+	padding-top: 7.6rem;
 	margin-bottom: 58px;
 }
 .list-group .list {
@@ -139,8 +139,7 @@ MainPage.blade */
 	text-decoration-line: none;
 }
 .list-group li {
-	padding: 0.5rem 1rem;
-	margin-top: 5px;
+	padding: 0.625rem 1rem;
 }
 .list-group .notice-list-title {
 	font-size: medium;
@@ -156,4 +155,8 @@ MainPage.blade */
 }
 .write-day span {
 	padding-right: 0.5rem;
+}
+
+.list :active {
+	background-color: #eeeeee;
 }

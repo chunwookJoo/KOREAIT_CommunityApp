@@ -15,35 +15,43 @@
 	<!--강의평가 기간일 경우-->
 	<section>
 		<div class="eval-list-container">
-			@if($withinPeriod) 
+			@if($withinPeriod)
 				@foreach ($evalList as $item)
 				<div class="eval_list_item">
 					<div>
-						<h5>{{ $item["subjectName"] }}</h5>
-						<span>{{ $item["name"] }}</span>
+						<h5>
+							@if ($item['eval_status']=="Y")
+								<i style="color:green" class="fas fa-check"></i>
+							@endif{{ $item["subjectName"] }}
+						</h5>
+						<span
+							@if ($item['eval_status']=="Y")
+								style="margin-left: 22px"
+							@endif
+						>
+						{{ $item["name"] }}
+					</span>
 					</div>
 					<!--강의평가 했는지 유무-->
-					@if ($item['eval_status']=="N")
 					<div class="do-eval-btn">
+					@if ($item['eval_status']=="N")
 						<a
-						href="{{route('EvalQuestion', ['haksuCode'=> $item['haksuCode'], 'name' =>$item['name'], 'subjectName' => $item['subjectName']])}}"
-						id="btn_eval"
-					>
-						<div>강의평가 하기</div></a
-					>
-					</div>
+							href="{{route('EvalQuestion', ['haksuCode'=> $item['haksuCode'], 'name' =>$item['name'], 'subjectName' => $item['subjectName']])}}"
+							id="btn_eval"
+						>
+						<div>강의평가 하기</div></a>
 					@else
-					<a
-						href="{{route('EvalQuestion', ['haksuCode'=> $item['haksuCode'], 'name' =>$item['name'], 'subjectName' => $item['subjectName']])}}"
-						id="btn_eval"
-					>
-						<div>강의평가 완료</div></a
-					>
+						<a
+							href="{{route('EvalQuestion', ['haksuCode'=> $item['haksuCode'], 'name' =>$item['name'], 'subjectName' => $item['subjectName']])}}"
+							id="btn_eval"
+						>
+						<div>강의평가 수정</div></a>
 					@endif
+					</div>
 				</div>
-				@endforeach 
+				@endforeach
 			@else
-			<h5>현재 강의평가 기간이 아닙니다.</h5>
+			<h5 class="dont-eval">현재 강의평가 기간이 아닙니다.</h5>
 			@endif
 		</div>
 	</section>

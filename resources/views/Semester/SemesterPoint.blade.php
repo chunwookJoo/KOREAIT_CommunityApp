@@ -15,21 +15,17 @@
 		</div>
 	</section>
 	<section>
-		<h2 class="total-point">
-			총 취득 학점 : {{ $total_point_Hakjum }}
-		</h2>
 		<table>
+			@foreach ($contents as $Hakgi_index =>$Hakgis)
+			<tr class="Hakgi">
+				<td colspan="5" id="hakgi-num">학기</td>
+			</tr>
 			<tr class="table-title">
 				@foreach ($titles as $item)
 				<th>
 					{{ $item }}
 				</th>
 				@endforeach
-			</tr>
-			@foreach ($contents as $Hakgi_index =>$Hakgis)
-
-			<tr class="Hakgi">
-				<td colspan="5" id="hakgi-num">학기</td>
 			</tr>
 			@foreach ($Hakgis as $subject_index => $subject)
 				<tr class="Hakgi{{ $Hakgi_index + 1 }} Hakgi">
@@ -39,7 +35,7 @@
 				</tr>
 			@endforeach
 			<tr id="avg" class="Hakgi{{ $Hakgi_index + 1 }} Hakgi">
-				<td colspan="5">평점계 : {{ $total_point[$Hakgi_index][1] }} &emsp; 평균 : {{ $total_point[$Hakgi_index][0] }}</td>
+				<td colspan="5">취득학점 : {{$total_point[$Hakgi_index][0]}} &emsp; 평점계 : {{ $total_point[$Hakgi_index][1] }} &emsp; 평균 : {{ $total_point[$Hakgi_index][2] }}</td>
 				{{-- <td>
 					{{ $total_point[$Hakgi_index][1] }}
 				</td>
@@ -51,6 +47,11 @@
 			</tr>
 			@endforeach
 		</table>
+		<div class="total-point">
+			총 취득 학점 : <span>{{ $total_point_Hakjum }}</span>&ensp;
+			평점계 : <span>{{$total_avg_total_point}}</span>&ensp;
+			평점평균 : <span>{{$total_avg_point}}</span>
+		</div>
 	</section>
 	<script>
 		function change_() {

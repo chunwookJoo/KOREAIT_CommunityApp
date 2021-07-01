@@ -198,9 +198,8 @@
 }
 ul div li {
 	border-bottom: 1px solid #cfcfcf;
-	padding: 0.5rem 1rem;
+	padding: 0.625rem 1rem;
 	width: 100%;
-	margin-top: 5px;
 }
 ul div li h5 {
 	font-size: medium;
@@ -217,4 +216,9 @@ ul li a .write-day {
 }
 ul li a .write-day span {
 	padding-right: 0.5rem;
+}
+
+#notice-list div :active,
+#enters div :active {
+	background-color: #eeeeee;
 }

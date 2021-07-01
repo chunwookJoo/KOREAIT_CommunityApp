@@ -28,6 +28,8 @@ use App\Http\Controllers\Evaluation\EvalViewController;
 use App\Http\Controllers\Evaluation\EvalQuestionContrller;
 use App\Http\Controllers\Evaluation\EvalPostQuestionContrller;
 use App\Http\Controllers\MiddleRestApi\RestPassword;
+use App\Http\Controllers\Preferences\MessageDetail;
+use App\Http\Controllers\Preferences\MessageList;
 
 Route::get('/', function () {
 	return view('LoginPage', ['error' => false]);
@@ -56,13 +58,13 @@ Route::get('/Haksa/SemesterPoint', [SemesterPointController::class, 'index'])->m
 Route::get('/Haksa/Attend', [MainAttendanceController::class, 'index'])->middleware('CheckLoginCookie')->name('Attend');
 
 // 강의평가 리스트
-Route::get('/Haksa/List', [EvalViewController::class, 'index'])->name('EvalList');
-Route::get('/Haksa/Question/{haksuCode}', [EvalQuestionContrller::class, 'index'])->name('EvalQuestion');
+Route::get('/Haksa/List', [EvalViewController::class, 'index'])->middleware('CheckLoginCookie')->name('EvalList');
+Route::get('/Haksa/Question/{haksuCode}/{name}/{subjectName}', [EvalQuestionContrller::class, 'index'])->middleware('CheckLoginCookie')->name('EvalQuestion');
 Route::post('/Haksa/Eval/Submit', [EvalPostQuestionContrller::class, 'index'])->name('EvalListPost');
 
 //일자리
 Route::get('/Job/{page}', [JobController::class, 'index'])->middleware('CheckLoginCookie')->name('Job');
-Route::get('/Job/view/{take_idx}', [JobDetailController::class, 'index'])->name('JobDetail');
+Route::get('/Job/view/{take_idx}', [JobDetailController::class, 'index'])->middleware('CheckLoginCookie')->name('JobDetail');
 
 Route::get('/Preferences', function () {
 	$title = "더보기";
@@ -82,9 +84,9 @@ Route::post('/Board/list/{page}/{group}', [BoardList::class, 'post_index'])->mid
 Route::get('/Board/Modified/{id}', [ModifiedBoard::class, 'index'])->middleware('CheckMyBoard')->name('ModifiedBoard');
 Route::get('/Board/Delete/{id}', [ModifiedBoard::class, 'delete_board'])->middleware('CheckMyBoard')->name('DeleteBoard');
 Route::post('/Board/Modified/post/{id}', [DetailBoardPage::class, 'post_modified'])->middleware('CheckMyBoard')->name('PostModifiedBoard');
-Route::get('/Board/MyBoard', [MyBoardList::class, 'get_index'])->name('MyBoardListGET');
-Route::post('/Board/MyBoard', [MyBoardList::class, 'post_index'])->name('MyBoardListPOST');
-Route::get('/Board/likeBoard/{boardid}', [LikeBoard::class, 'index'])->name('LikePost');
+Route::get('/Board/MyBoard', [MyBoardList::class, 'get_index'])->middleware('CheckLoginCookie')->name('MyBoardListGET');
+Route::post('/Board/MyBoard', [MyBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('MyBoardListPOST');
+Route::get('/Board/likeBoard/{boardid}', [LikeBoard::class, 'index'])->middleware('CheckLoginCookie')->name('LikePost');
 
 //학부
 Route::get('/Main/Hakbu/list/{major}', [HakbuBoardList::class, 'index'])->middleware('CheckLoginCookie')->name('HakbuBoardList');
@@ -94,6 +96,8 @@ Route::post('/Main/Hakbu/list/{major}', [HakbuBoardList::class, 'post_index'])->
 Route::get('/Preferences/MyProfile', [MyProfile::class, 'index'])->middleware('CheckLoginCookie')->name('MyProFile');
 Route::get('/Preferences/AppVersion', [AppVersion::class, 'index'])->middleware('CheckLoginCookie')->name('AppVerSion');
 Route::get('/Preferences/Alarm', [Alarm::class, 'index'])->middleware('CheckLoginCookie')->name('Alarm');
+Route::get('/Preferences/Message/list/{page}', [MessageList::class, 'index'])->middleware('CheckLoginCookie')->name('MessageList');
+Route::get('/Preferences/Message/detail/{id}', [MessageDetail::class, 'index'])->middleware('CheckLoginCookie')->name('MessageDetail');
 
 //로그인
 Route::post('/LoginCheck', [LoginController::class, 'index'])->name('LoginControll');

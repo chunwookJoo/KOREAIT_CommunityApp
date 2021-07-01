@@ -32,9 +32,9 @@
 			</form>
 		</section>
 	</div>
-	<ul id="notice-list">
+	<ul id="notice_list">
 		@foreach ($response as $index => $item)
-		<div>
+		<div class="my-board">
 			<li>
 				<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group' => $board_group ])}}">
 					<h5>

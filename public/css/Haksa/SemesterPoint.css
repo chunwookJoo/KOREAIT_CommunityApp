@@ -4,7 +4,12 @@ body section {
 }
 .total-point {
 	text-align: center;
-	margin-bottom: 2rem;
+	margin-top: 3rem;
+	font-size: 1rem;
+}
+.total-point span {
+	font-size: 1.1rem;
+	font-weight: bold;
 }
 .semester-nav {
 	padding-top: 5.1rem;
@@ -28,9 +33,9 @@ td {
 }
 
 #hakgi-num {
-	padding-top: 20px;
+	padding-top: 2rem;
 	font-size: 1rem;
-	border-bottom: 2px solid #989898;
+	border-bottom: 1px solid #989898;
 }
 
 th,
