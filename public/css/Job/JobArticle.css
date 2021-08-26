@@ -34,7 +34,7 @@ h6 {
 .announce-content,
 .article-grid {
 	padding-bottom: 1rem;
-	word-break: keep-all;
+	word-break: break-all;
 }
 
 article .article-grid {

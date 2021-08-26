@@ -7,6 +7,7 @@
 		@section('menu-title')
 		@endsection
 	<section>
+		@if(count($json_) > 0)
 		{{-- <small>*터치 시 상세보기가 가능합니다</small> --}}
 		<table class="calendar-table" style="width:100%;" >
 				<tr class="day">
@@ -47,6 +48,10 @@
 					@endfor
 				</tr>
 				@endfor
+		@else
+				{{-- api 고장 --}}
+				<h5 class="dont-calendar">시간표 작성중 입니다.</h5>
+		@endif
 	</section>
 	<script src="{{asset('js/Calendar/Calendar.js')}}">
 	</script>

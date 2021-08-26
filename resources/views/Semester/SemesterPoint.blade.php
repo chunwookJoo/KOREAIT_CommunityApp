@@ -18,7 +18,7 @@
 		<table>
 			@foreach ($contents as $Hakgi_index =>$Hakgis)
 			<tr class="Hakgi">
-				<td colspan="5" id="hakgi-num">학기</td>
+				<td colspan="6" id="hakgi-num">{{$Hakgi_year[$Hakgi_index]}}학년 &ensp; {{$Hakgi_index % 2 ? 2 : 1}}학기</td>
 			</tr>
 			<tr class="table-title">
 				@foreach ($titles as $item)
@@ -35,7 +35,7 @@
 				</tr>
 			@endforeach
 			<tr id="avg" class="Hakgi{{ $Hakgi_index + 1 }} Hakgi">
-				<td colspan="5">취득학점 : {{$total_point[$Hakgi_index][0]}} &emsp; 평점계 : {{ $total_point[$Hakgi_index][1] }} &emsp; 평균 : {{ $total_point[$Hakgi_index][2] }}</td>
+				<td colspan="6">취득학점 : {{$total_point[$Hakgi_index][0]}} &emsp; 평점계 : {{ $total_point[$Hakgi_index][1] }} &emsp; 평균 : {{ $total_point[$Hakgi_index][2] }}</td>
 				{{-- <td>
 					{{ $total_point[$Hakgi_index][1] }}
 				</td>

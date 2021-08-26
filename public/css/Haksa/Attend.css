@@ -10,13 +10,12 @@ body section {
 }
 .attend-grid {
 	width: 100%;
-	padding: 10rem 1rem 5rem 1rem;
-	display: grid;
-	grid-gap: 14px;
-	grid-template-columns: 1fr 1fr 1fr;
-}
-.attend-grid div {
-	border-radius: 17px;
+	padding: 12rem 0 5rem 0;
+	display: flex;
+	/* gap: 2.4rem 1.2rem; */
+	gap: 2.4rem 0;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 .attend-grid p {
 	border-top-left-radius: 15px;
@@ -24,16 +23,23 @@ body section {
 }
 .attend-grid div {
 	text-align: center;
+	display: flex;
+	flex-direction: column;
 	height: 10rem;
+	width: 110px;
 	border: 1px solid;
+	border-radius: 17px;
+	margin-left: calc((100% - (20% * 4)) / 4);
 	box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 50%);
 	background-color: #f3f3f3;
 }
 .attend-grid div p {
 	margin: 0;
-	padding: 1.4rem 0.2rem 0 0.2rem;
+	padding: 0.8rem 0.2rem 0.6rem 0.2rem;
 	font-size: smaller;
 	word-break: keep-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 h5 {
 	padding-top: 1rem;

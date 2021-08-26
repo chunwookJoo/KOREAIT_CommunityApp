@@ -1,3 +1,9 @@
+.dont-calendar {
+	padding-top: 8.6rem;
+	text-align: center;
+	font-weight: bold;
+}
+
 body {
 	max-width: 100%;
 	max-height: 100%;
