@@ -1,5 +1,6 @@
 <?php
 
+use App\Htpp\Controllers\Agreement;
 use App\Http\Controllers\board\BoardList;
 use App\Http\Controllers\board\WritingPage;
 use App\Http\Controllers\board\DetailBoardPage;
@@ -35,12 +36,15 @@ Route::get('/', function () {
 	return view('LoginPage', ['error' => false]);
 })->middleware('LoginCookie')->name('default');
 Route::fallback(function () {
-	return view('LoginPage', ['error' => false]);
+	return redirect('/');
 })->middleware('LoginCookie')->name('default');
 
 // 비밀번호 초기화
 Route::post('/ResetPassword', [ResetPW::class, 'index'])->name('ResetPW');
 Route::post('/ResetPassword/API', [ResetPW::class, 'api'])->name('ResetPWAPI');
+
+// 동의서
+Route::get('/Form/{type}',  [Agreement::class, 'index'])->middleware('CheckLoginCookie')->name('Agreement');
 
 // 학번 검색
 Route::post('/SearchStudentNumber/API', [SearchStudentNumber::class, 'api'])->name('SearchStudentNumberAPI');
@@ -76,17 +80,20 @@ Route::get('/Preferences', function () {
 Route::get('/Notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
 
 //게시판 관련
-Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLoginCookie')->name('Writing');
-Route::post('/Board/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
-Route::get('/Board/detail/{id}/{group}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie')->name('BoardDetail');
-Route::get('/Board/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
-Route::post('/Board/list/{page}/{group}', [BoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('PostBoardList');
-Route::get('/Board/Modified/{id}', [ModifiedBoard::class, 'index'])->middleware('CheckMyBoard')->name('ModifiedBoard');
-Route::get('/Board/Delete/{id}', [ModifiedBoard::class, 'delete_board'])->middleware('CheckMyBoard')->name('DeleteBoard');
-Route::post('/Board/Modified/post/{id}', [DetailBoardPage::class, 'post_modified'])->middleware('CheckMyBoard')->name('PostModifiedBoard');
-Route::get('/Board/MyBoard', [MyBoardList::class, 'get_index'])->middleware('CheckLoginCookie')->name('MyBoardListGET');
-Route::post('/Board/MyBoard', [MyBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('MyBoardListPOST');
-Route::get('/Board/likeBoard/{boardid}', [LikeBoard::class, 'index'])->middleware('CheckLoginCookie')->name('LikePost');
+Route::prefix('Board')->group(function () {
+	Route::get('/Writing', [WritingPage::class, 'index'])->middleware('CheckLoginCookie')->name('Writing');
+Route::post('/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
+Route::get('/detail/{id}/{group}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie')->name('BoardDetail');
+Route::get('/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
+Route::post('/list/{page}/{group}', [BoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('PostBoardList');
+Route::get('/Modified/{id}', [ModifiedBoard::class, 'index'])->middleware('CheckMyBoard')->name('ModifiedBoard');
+Route::get('/Delete/{id}', [ModifiedBoard::class, 'delete_board'])->middleware('CheckMyBoard')->name('DeleteBoard');
+Route::post('/Modified/post/{id}', [DetailBoardPage::class, 'post_modified'])->middleware('CheckMyBoard')->name('PostModifiedBoard');
+Route::get('/MyBoard', [MyBoardList::class, 'get_index'])->middleware('CheckLoginCookie')->name('MyBoardListGET');
+Route::post('/MyBoard', [MyBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('MyBoardListPOST');
+Route::get('/likeBoard/{boardid}', [LikeBoard::class, 'index'])->middleware('CheckLoginCookie')->name('LikePost');
+
+});
 
 //학부
 Route::get('/Main/Hakbu/list/{major}', [HakbuBoardList::class, 'index'])->middleware('CheckLoginCookie')->name('HakbuBoardList');
