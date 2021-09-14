@@ -26,15 +26,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/set/info', _ApiUserSetInfo::class);			// 사용자 정보 입력/수정
-Route::post('/set/firebase', _ApiUserSetFirebase::class);	// 사용자 Firebase 키 입력
-Route::post('/get/info', _ApiUserGetInfo::class);			// 사용자 정보 조회
-Route::post('/get/firebase', _ApiUserGetFirebase::class);	// 사용자 Firebase 키 조회
-Route::post('/get/firebase/group', _ApiUserGetFirebaseGroup::class);	// 그룹 Firebase 키 조회
-Route::post('/set/nickname', _ApiUserSetNickname::class);	// 사용자 별명 입력
-Route::post('/message', _ApiUserGetMessage::class);					// 푸시 메시지 조회
-Route::post('/message/send', _ApiUserSendMessage::class);			// 푸시 메시지 전송
-Route::post('/message/count', _ApiUserGetMessageCount::class);		// 푸시 메시지 수
-Route::post('/message/list', _ApiUserGetMessageList::class);		// 푸시 메시지 목록
-Route::post('/message/delete', _ApiUserGetMessageDelete::class);	// 푸시 메시지 삭제
-Route::get('/attend/list', _ApiUserAttendList::class);		// 학부/학과별 명단
+Route::prefix("signature")->group(
+	base_path("routes/_admin/_api/_signature.php")
+); // 학생용 문서 API
+Route::post("/set/info", _ApiUserSetInfo::class); // 사용자 정보 입력/수정
+Route::post("/set/firebase", _ApiUserSetFirebase::class); // 사용자 Firebase 키 입력
+Route::post("/get/info", _ApiUserGetInfo::class); // 사용자 정보 조회
+Route::post("/get/firebase", _ApiUserGetFirebase::class); // 사용자 Firebase 키 조회
+Route::post("/get/firebase/group", _ApiUserGetFirebaseGroup::class); // 그룹 Firebase 키 조회
+Route::post("/set/nickname", _ApiUserSetNickname::class); // 사용자 별명 입력
+Route::post("/message", _ApiUserGetMessage::class); // 푸시 메시지 조회
+Route::post("/message/send", _ApiUserSendMessage::class); // 푸시 메시지 전송
+Route::post("/message/count", _ApiUserGetMessageCount::class); // 푸시 메시지 수
+Route::post("/message/list", _ApiUserGetMessageList::class); // 푸시 메시지 목록
+Route::post("/message/delete", _ApiUserGetMessageDelete::class); // 푸시 메시지 삭제
+Route::get("/attend/list", _ApiUserAttendList::class); // 학부/학과별 명단

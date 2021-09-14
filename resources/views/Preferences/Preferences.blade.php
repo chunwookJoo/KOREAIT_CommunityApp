@@ -19,7 +19,7 @@
 					>
 				</div></a
 			>
-			<a href="#a"
+			<a href="{{ route('MessageList', ['page' => 1]) }}"
 				><div>
 					<i class="far fa-envelope" style="font-size: 2rem">
 						<br /><small>받은 메세지</small></i

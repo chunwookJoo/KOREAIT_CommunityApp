@@ -19,7 +19,7 @@ class ResetPW extends Controller
 		$url_id = env('URL_RESET');
 		$url_id = $url_id . $resetStudentID;
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 
 		$data = array(
 			'socialNum' => $fullSocialNum,
@@ -48,7 +48,7 @@ class ResetPW extends Controller
 		$data = array(
 			'socialNum' => $request['FullSocialNum']
 		);
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlPost($url_id, $data);
 		if ($response[0]['RESULT'] == 100) {
 			$result = array(

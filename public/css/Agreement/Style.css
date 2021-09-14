@@ -1,0 +1,25 @@
+@import url("./Scholarship.css");
+@import url("./Lecture.css");
+@import url("./Personal.css");
+
+.student-info-section {
+	margin: 0 auto 2rem auto;
+	display: grid;
+	gap: 6px;
+	width: 65%;
+}
+
+.student-info-section div {
+	background-color: #f7ebff;
+	padding: 4px 8px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 1px #cfcfcf;
+}
+
+article {
+	display: flex;
+	word-break: keep-all;
+	margin-bottom: 1rem;
+	flex-direction: column;
+	text-align: center;
+}

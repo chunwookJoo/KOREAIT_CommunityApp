@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::match(['get', 'post'], '/list', _RoleList::class)->name('_RoleList');	// 관리자 리스트
-Route::match(['get', 'post'], '/set', _RoleSet::class)->name('_RoleSet');		// 역할 설정
+Route::get("/list", [_RoleList::class, "get"])->name("_RoleList"); // 관리자 리스트
+Route::post("/list", [_RoleList::class, "post"])->name("_RoleList"); // 관리자 리스트
+Route::get("/set", [_RoleSet::class, "get"])->name("_RoleSet"); // 역할 설정
+Route::post("/set", [_RoleSet::class, "post"])->name("_RoleSet"); // 역할 설정

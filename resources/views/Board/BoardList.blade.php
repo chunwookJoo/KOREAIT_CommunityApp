@@ -169,7 +169,7 @@
 						{{ $item["title"] }}
 					</h5>
 					<div class="write-day">
-						<span>{{ $item["author"] }}</span>
+						<span>{{ $item["author"] ?? "익명" }}</span>
 						<span>{{ $date_list[$index] }}</span>
 						<span
 							><i class="far fa-thumbs-up"></i>

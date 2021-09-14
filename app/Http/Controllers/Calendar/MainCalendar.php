@@ -58,7 +58,7 @@ class MainCalendar extends Controller
 		$title = "KOREAIT 시간표";
 
 		//return dd($contents_arr);
-		return view('Calendar.Calendar', compact('time_arr', 'contents_arr', 'temp_row_array', 'title', 'temp_class_array', 'temp_professor_array', 'temp_classroom_array'));
+		return view('Calendar.Calendar', compact('json_', 'time_arr', 'contents_arr', 'temp_row_array', 'title', 'temp_class_array', 'temp_professor_array', 'temp_classroom_array'));
 	}
 
 	function time_set()

@@ -1,0 +1,52 @@
+.global-section {
+	font-family: "Noto Sans KR", sans-serif;
+	border: 1px solid #808080;
+	padding: 2rem 1rem;
+	margin: 2rem 1rem;
+}
+
+.global-section h1 {
+	font-size: 1.4rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #764ba2;
+	font-weight: bold;
+}
+
+.sign-section {
+	text-align: center;
+}
+
+.agreement-btn {
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border: none;
+	margin: 0 10px;
+	color: #fff;
+	padding: 8px;
+	border-radius: 8px;
+}
+
+.canvas {
+	background-color: white;
+	background-position: 0px 0px;
+	border: 1px solid #acacac;
+	border-radius: 10px;
+	cursor: crosshair;
+	touch-action: none;
+}
+
+.signature-text {
+	display: block;
+	position: relative;
+	top: -90px;
+}
+
+.blind {
+	display: none;
+}
+
+footer {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.4rem;
+}

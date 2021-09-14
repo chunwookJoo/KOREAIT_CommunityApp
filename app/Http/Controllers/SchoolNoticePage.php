@@ -12,7 +12,7 @@ class SchoolNoticePage extends Controller
 		try {
 			//상세 공지사항 주소
 			$url_id = env("URL_NEWS_VIEW", false) . $request['id'];
-			$curl = new CurlController();
+			$curl = CurlController::getInstance();
 			$response = $curl->curlGet($url_id);
 
 			$data = $response[0];

@@ -29,7 +29,7 @@ class WritingPage extends Controller
 			);
 			$post_field_string = http_build_query($data);
 
-			$curl = new CurlController();
+			$curl = CurlController::getInstance();
 			$response = $curl->curlPost($url_id, $data);
 			return redirect()->route('BoardDetail', ['id' => $response['board_id'], 'group' => $board_group]);
 		} catch (\Exception $e) {

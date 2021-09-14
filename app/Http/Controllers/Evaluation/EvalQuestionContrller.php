@@ -13,7 +13,7 @@ class EvalQuestionContrller extends Controller
 	{
 		$curl = new CurlController();
 		$haksuCode = $request['haksuCode'];
-		$title = '강의평가';
+		$title = $request['subjectName'].'/'.$request['name'];
 
 		$response = $curl->curlGet(env('URL_EVAL_QUESTION').Cookie::get('studentID').'/'.$request['haksuCode']);
 

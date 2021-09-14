@@ -20,16 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('user')->group(base_path('routes/_admin/_web/_user.php'));		// 사용자 관련 라우트
-Route::prefix('board')->group(base_path('routes/_admin/_web/_board.php'));		// 게시판 관련 라우트
-Route::prefix('role')->group(base_path('routes/_admin/_web/_role.php'));		// 역할 관련 라우트
-Route::prefix('log')->group(base_path('routes/_admin/_web/_log.php'));			// 로그 관련 라우트
-
-Route::match(['get', 'post'], '/notify', _Notify::class)->name('_Notify');
-Route::get('/main', _Main::class)->name('_Main');
-Route::get('/home', function () {
-	return redirect('admin/board/list');
-})->name('_Home');
-Route::get('/login', function () {
-	return redirect('admin/user/login');
+Route::prefix("user")->group(base_path("routes/_admin/_web/_user.php")); // 사용자 관련 라우트
+Route::prefix("board")->group(base_path("routes/_admin/_web/_board.php")); // 게시판 관련 라우트
+Route::prefix("role")->group(base_path("routes/_admin/_web/_role.php")); // 역할 관련 라우트
+Route::prefix("log")->group(base_path("routes/_admin/_web/_log.php")); // 로그 관련 라우트
+Route::get("/notify", [_Notify::class, "get"])->name("_Notify"); // 게시물 작성
+Route::post("/notify", [_Notify::class, "post"])->name("_Notify"); // 게시물 작성
+Route::get("/main", _Main::class)->name("_Main");
+Route::get("/home", _Home::class)->name("_Home");
+Route::get("/login", function () {
+	return redirect("admin/user/login");
 });

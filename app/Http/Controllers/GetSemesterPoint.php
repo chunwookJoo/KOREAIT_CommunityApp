@@ -23,7 +23,7 @@ class GetSemesterPoint extends Controller
 
 			//xml 파싱
 			$object = simplexml_load_string($xml_response);
-			$List = $object->Hakgi;
+			$List = $object;
 
 			//출력 부분
 			return $List;

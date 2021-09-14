@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\_Api\_User;
 
+use App\Http\Controllers\_Api\_ApiRequestSender;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -22,14 +22,16 @@ use Illuminate\Support\Facades\Log;
  * 		sender_id			"2021234"				사번/학번		필수
  * 		student_id			"20073004"				학번			필수
  * 		title				"테스트"				메시지 제목		필수
- * 		content				"아아, 테스트"			메시지 내용
+ * 		content				"아아, 테스트"			메시지 내용		필수
+ * 		phone				"01012345678"			송신자 번호		푸시 실패 시 MMS, 옵션
+ * 		callback			"01087654321"			수신자 번호		푸시 실패 시 MMS, 옵션
  *
  * 결과 (단일)
  * 		Key					Value					설명			비고
  * 		==========================================================================
  * 		RESULT				100						전송 성공
- * 							400						사용자 키 없음	앱 설치 안됨
- * 		message_id			16
+ * 							400						사용자 없음		앱 등록 안함
+ * 							410						키 없음			기기 로그인 안함
  *
  */
 
@@ -37,16 +39,6 @@ class _ApiUserSendMessage extends Controller
 {
 	public function __invoke(Request $request)
 	{
-		// GuzzleHttp\Client로 http 요청 준비
-		$httpClient = new Client([
-			'base_uri' => env('FCM_BASE_URL'),
-			'headers' => [
-				'Authorization' => "key=" . env('FCM_SERVER_TOKEN'),
-				'Content-Type' => 'application/json',
-				'project_id' => env('FCM_SENDER_ID'),
-			],
-		]);
-
 		$result = array(
 			"MESSAGE" => "",
 		);
@@ -95,40 +87,19 @@ class _ApiUserSendMessage extends Controller
 					)
 				);
 
-				$firebase_key = $db_result_firebase_key[0]->firebase_key;
-
-				// GuzzleHttp\Client 객체에 JSON 요청 넣기
-				$fcm_request = new Psr7Request('POST', 'fcm/send', [], json_encode([
-					'to' => $firebase_key,
-					'notification' => [
-						'title' => $request->title,
-						'body' => $request->content,
-					],
-				]));
-
-				$fcm_response = $httpClient->send($fcm_request);
-				$fcm_response_json = json_decode($fcm_response->getBody(), true);
-
-				try {
-					// fcm 메시지 응답, 실패 시에만 error 속성이 존재
-					if ($fcm_response_json['results']['0']['error'] == 'NotRegistered') {
-						// 키에 해당하는 기기가 없으면 DB에서 사용자 키 삭제
-						$db_result = DB::select(
-							'CALL koreaitedu.firebase_delete_key(?);',
-							array(
-								$firebase_key
-							)
-						);
-					}
-					$result["MESSAGE"] = $result["MESSAGE"] . "전송에 실패했습니다.\n";
-				} catch (\Throwable $th) {
-					// 성공 시에는 error 속성이 존재하지 않으므로 접근 시 에러 처리
-					$result["MESSAGE"] = $result["MESSAGE"] . "전송에 성공했습니다.\n";
+				if ($db_result_firebase_key[0]->RESULT == 100) {
+					// 등록된 사용자의 firebase_key가 있으면 푸시 전송
+					$firebase_key = $db_result_firebase_key[0]->firebase_key;
+					$result = _ApiRequestSender::send_fcm($request, $firebase_key, $result);
+				} else {
+					// 등록된 사용자의 firebase_key가 없으면 SMS 전송
+					$result = _ApiRequestSender::send_sms($request, $result);
 				}
 
 				return response()->json($result);
-			} else if ($db_result_firebase_key[0]->RESULT == 400) {
-				$result["MESSAGE"] = $result["MESSAGE"] . "전송에 실패했습니다.\n";
+			} else {
+				// 수신자 정보가 등록되어 있지 않으면 SMS 전송
+				$result = _ApiRequestSender::send_sms($request, $result);
 				return response()->json($result);
 			}
 		} catch (\Throwable $th) {

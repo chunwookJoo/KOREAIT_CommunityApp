@@ -19,7 +19,7 @@ class ModifiedBoard extends Controller
 				'board_id' => $board_id
 			);
 
-			$curl = new CurlController();
+			$curl = CurlController::getInstance();
 			$response = $curl->curlPost($url_id, $data);
 			$data = $response;
 			return view('Board.Modified', compact('data', 'board_id'));
@@ -38,7 +38,7 @@ class ModifiedBoard extends Controller
 			'student_id' => Cookie::get('student'),
 		);
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlPost($url_id, $data);
 		$BoardList = new BoardList();
 		return $BoardList->index($request);

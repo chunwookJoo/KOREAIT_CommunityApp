@@ -14,12 +14,11 @@ $('#submit-btn').click(() =>{
 			questitionSize: questitonSize,
 			haksuCode: haksuCode,
             q: list,
-			suggestion: $('#form-control').val()
+			suggestion: $('#floatingTextarea2').val()
 		})
 	}).then(response => response.json())
 	.then(json =>{
-		console.log(json);
-		if(json.RESULT == 100){
+		if(json[0].RESULT == 100){
 			window.history.back();
 		}
 	});

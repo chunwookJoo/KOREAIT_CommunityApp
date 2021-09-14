@@ -38,7 +38,7 @@
 							<input type="checkbox" name="board_is_notice" id="board_is_notice" @if ($result_board)
 								{{ $result_board->is_notice?'checked':'' }} @else checked @endif>
 						</span>
-						<span style="width: 80%">
+						<span style="width: 40%">
 							<select name="board_group" id="board_group" @if ($result_board)
 								value="{{ $result_board->board_group }}" disable @endif>
 								@if ($result_group)
@@ -55,9 +55,7 @@
 								@endif
 							</select>
 						</span>
-					</p>
-					<p>
-						<span style="width: 49%">
+						<span style="width: 40%">
 							<select name="college" id="college" @if ($result_board) value="{{ $result_board->college }}" disable
 								@else hidden @endif>
 								@if ($result_college)
@@ -69,24 +67,6 @@
 								@elseif ($result_board)
 								<option id="depart-{{ $result_board->college }}" class="board-college"
 									value="{{ $result_board->college }}">{{ $result_board->college }}
-								</option>
-								@endif
-							</select>
-						</span>
-						<span style="width: 49%">
-							<select name="depart" id="depart" @if ($result_board) value="{{ $result_board->depart }}" disable
-								@else hidden @endif>
-								@if ($result_depart)
-								@foreach ($result_depart as $college)
-								@foreach ($college['minor'] as $depart)
-								<option class="board-depart depart-{{ $college['sosokCode'] }}"
-									value="{{ array_slice(explode(' ', $depart['sosokName']), -1)[0] }}">
-									{{ array_slice(explode(' ', $depart['sosokName']), -1)[0] }}</option>
-								@endforeach
-								@endforeach
-								@elseif ($result_board)
-								<option class="board-depart depart-{{ $result_board->college }}"
-									value="{{ $result_board->depart }}">{{ $result_board->depart }}
 								</option>
 								@endif
 							</select>

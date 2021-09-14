@@ -22,7 +22,7 @@ class BoardList extends Controller
 			'search_value' => ""
 		);
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
 		$search_text = false;
 
@@ -51,7 +51,7 @@ class BoardList extends Controller
 			'search_value' => $search_text,
 		);
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
 		//검색시 공지 사항 제외
 		$notice_response = [];

@@ -19,7 +19,7 @@ class MyProfile extends Controller
 			'user_id' => $student_id
 		);
 		$title = "내 정보";
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlPost($url_id, $data);
 		return view('Preferences.MyProfile', compact('response', 'student_id','title'));
 	}

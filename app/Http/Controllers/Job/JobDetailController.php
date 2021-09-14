@@ -12,7 +12,7 @@ class JobDetailController extends Controller
 	{
 		$title = "구인의뢰";
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 
 		$response = $curl->curlGet(env("URL_JOB_DETAIL"). $requets['take_idx']);
         $response = $response[0];

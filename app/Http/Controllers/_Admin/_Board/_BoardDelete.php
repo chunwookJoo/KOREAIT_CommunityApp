@@ -12,19 +12,18 @@ class _BoardDelete extends Controller
 {
 	public function __invoke(Request $request)
 	{
+		$db_params = [$request->board_id, $request->cookie("admin_id")];
+
 		try {
-			DB::statement(
-				'CALL koreaitedu.board_delete(?,?);',
-				[
-					$request->board_id,
-					$request->cookie('admin_id'),
-				]
-			);
-			return redirect()->route('_BoardList')->with('alert', '게시물 삭제 완료');
+			DB::statement("CALL koreaitedu.board_delete(?,?);", $db_params);
+			return redirect()
+				->route("_BoardList")
+				->with("alert", "게시물 삭제 완료");
 		} catch (\Throwable $th) {
 			Log::error($th);
-			return redirect()->back()
-				->with('alert', '시스템 오류가 발생했습니다.');
+			return redirect()
+				->back()
+				->with("alert", "시스템 오류가 발생했습니다.");
 		}
 	}
 }

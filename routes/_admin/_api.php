@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('board')->group(base_path('routes/_admin/_api/_board.php'));		// 게시판 관련 API
-Route::prefix('notice')->group(base_path('routes/_admin/_api/_notice.php'));	// 공지 관련 API
-Route::prefix('reply')->group(base_path('routes/_admin/_api/_reply.php'));		// 댓글 관련 API
-Route::prefix('user')->group(base_path('routes/_admin/_api/_user.php'));		// 사용자 관련 API
+Route::prefix("board")->group(base_path("routes/_admin/_api/_board.php")); // 게시판 관련 API
+Route::prefix("notice")->group(base_path("routes/_admin/_api/_notice.php")); // 공지 관련 API
+Route::prefix("reply")->group(base_path("routes/_admin/_api/_reply.php")); // 댓글 관련 API
+Route::prefix("user")->group(base_path("routes/_admin/_api/_user.php")); // 사용자 관련 API
+Route::prefix("test")->group(base_path("routes/_admin/_api/_test.php")); // 테스트용

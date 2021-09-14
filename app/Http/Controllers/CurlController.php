@@ -2,8 +2,19 @@
 
 namespace App\Http\Controllers;
 
-class CurlController extends Controller
+class CurlController
 {
+	
+	public static function getInstance()
+    {
+        static $instance = null;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
+
 	public function curlPost($url_id, $post_data, $ssl = false)
 	{
 		$ch = curl_init();                                 //curl 초기화

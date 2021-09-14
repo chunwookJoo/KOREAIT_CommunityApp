@@ -12,10 +12,10 @@ class JobController extends Controller
 	{
 		$title = "구인의뢰";
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$data = array(
 			'page_num' => $requets['page'],
-			'page_size' => 20
+			'page_size' => 35
 		);
 		
 		$response = $curl->curlPost(env("URL_JOB"), $data);

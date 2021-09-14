@@ -42,8 +42,8 @@
 						<option value="0" select>게시판을 선택하세요.</option>
 						<option value="901">자유 게시판</option>
 						<option value="904">동아리 게시판</option>
-						<option value="902">건의 게시판</option>
-						<option value="903">별명 게시판</option>
+						<option value="903">건의 게시판</option>
+						<option value="902">별명 게시판</option>
 						<option value="701">학부 게시판</option>
 					</select>
 				</div>

@@ -16,7 +16,7 @@ class DetailBoardPage extends Controller
 	{
 		try {
 			//curl 생성
-			$curl = new CurlController();
+			$curl = CurlController::getInstance();
 
 			$board_id =  $request['id'];			//게시판 번호
 			$student_id = Cookie::get('studentID'); //학번

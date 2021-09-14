@@ -24,8 +24,8 @@ class LoginController extends Controller
 			$year = $res[0]["gradeYear"];
 			$sosok = $res[0]["sosokName"];
 			$sosok_array = explode(" ", $sosok);
-			$college = $sosok_array[0];
-			$depart = $sosok_array[1];
+			$college = $sosok_array[0] ?? "";
+			$depart = $sosok_array[1] ?? "";
 			$class = $res[0]["className"];
 
 			try {
@@ -92,7 +92,7 @@ class LoginController extends Controller
 			"/" .
 			$request->studentPassword;
 
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$response = $curl->curlGet($url_id);
 
 		$errorTitle = "로그인 실패";
@@ -104,9 +104,6 @@ class LoginController extends Controller
 				"LoginPage",
 				compact("error", "errorTitle", "errorBody")
 			);
-		}
-		if ((string) $response[0]["RESULT"] != "100") {
-			return view("LoginPage", ["error" => true]);
 		}
 		//로그인 성공시 쿠기 생성
 		Cookie::queue(Cookie::make("studentID", $student_id, 60));
@@ -120,6 +117,53 @@ class LoginController extends Controller
 
 		Cookie::queue(Cookie::forget("studentID_delete"));
 		$this->log_login($request, $student_id, $response);
+
+		if (!$response[0]["software"]) {
+			$request->session()->put("sosokName", $response[0]["sosokName"]);
+			$request->session()->put("birthday", $response[0]["birthday"]);
+			$request
+				->session()
+				->put("studentName", $response[0]["studentName"]);
+			return redirect()->route("Agreement", [
+				"type" => "software",
+			]);
+		}
+		if (!$response[0]["lecture"]) {
+			$request
+				->session()
+				->put(
+					"major",
+					"{$response[0]["major"]} {$response[0]["degree"]}"
+				);
+			$request
+				->session()
+				->put("studentName", $response[0]["studentName"]);
+			$request->session()->put("birthday", $response[0]["birthday"]);
+			$request->session()->put("hp", $response[0]["hp"]);
+			$request->session()->put("address", $response[0]["address1"]);
+			return redirect()->route("Agreement", [
+				"type" => "lecture",
+			]);
+		}
+		if ($response[0]["personal"]) {
+			$request->session()->put("birthday", $response[0]["birthday"]);
+			$request
+				->session()
+				->put("studentName", $response[0]["studentName"]);
+			return redirect()->route("Agreement", [
+				"type" => "personal",
+			]);
+		}
+		if (!$response[0]["scholarship"]) {
+			$request->session()->put("sosokName", $response[0]["sosokName"]);
+			$request->session()->put("birthday", $response[0]["birthday"]);
+			$request
+				->session()
+				->put("studentName", $response[0]["studentName"]);
+			return redirect()->route("Agreement", [
+				"type" => "scholarship",
+			]);
+		}
 		return redirect()->route("MainPage");
 	}
 

@@ -41,7 +41,7 @@ class _ApiUserGetMessageList extends Controller
 				array(
 					$request->user_id,
 					$page_offset,
-					$request->page_num,
+					$request->page_size,
 					0,
 				)
 			);

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\CurlController;
 
 class SchoolNotice extends Controller
 {
@@ -12,7 +13,7 @@ class SchoolNotice extends Controller
 				'page_num' => $num,
 				'page_size' => $size,
 			);
-			$curl = new CurlController();
+			$curl = CurlController::getInstance();
 			$response = $curl->curlPost(env("URL_NEWS_LIST"), $data);
 			return $response;
 		} catch (\Exception $e) {

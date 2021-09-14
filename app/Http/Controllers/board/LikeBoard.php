@@ -16,7 +16,7 @@ class LikeBoard extends Controller
 			'board_id' => $request['boardid'],
 			'user_id' => Cookie::get('studentID')
 		);
-		$curl = new CurlController();
+		$curl = CurlController::getInstance();
 		$curl->curlPOst($url_id, $data);
 		return redirect()->back();
 	}

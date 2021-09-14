@@ -50,7 +50,7 @@
 								type="button"
 								class="btn btn-primary"
 								id="delete-confirm"
-								onclick="DeleteMessage({{ $message_id }},{{
+								onclick="deleteMessage({{ $message_id }},{{
 									$student_id
 								}})"
 								value="삭제"
@@ -65,5 +65,6 @@
 			{{$response['content']}}
 		</div>
 	</section>
+	<script src="{{ asset('./js/Preferences/MessageDelete.js') }}"></script>
 </body>
 @endsection

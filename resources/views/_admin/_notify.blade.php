@@ -42,8 +42,8 @@
 			@endforeach
 		};
 		const depart_map = {
-			@foreach ($result_depart as $college)
-			@foreach ($college['minor'] as $depart)
+			@foreach ($result_college as $college)
+			@foreach ($result_depart[$college['sosokCode']] as $depart)
 			"{{ $depart['sosokCode'] }}": "{{ array_slice(explode(' ', $depart['sosokName']), -1)[0] }}",
 			@endforeach
 			@endforeach
@@ -80,8 +80,8 @@
 				<label for="depart">학과</label>
 				<select name="depart" id="depart">
 					<option value="">전체</option>
-					@foreach ($result_depart as $college)
-					@foreach ($college['minor'] as $depart)
+					@foreach ($result_college as $college)
+					@foreach ($result_depart[$college['sosokCode']] as $depart)
 					<option class="board-depart depart-{{ $college['sosokCode'] }}"
 						value="{{ array_slice(explode(' ', $depart['sosokName']), -1)[0] }}" @if ($request->depart ==
 						array_slice(explode(' ', $depart['sosokName']), -1)[0])
@@ -132,9 +132,10 @@
 										<td class="user-status"></td>
 										<td class="app-installed">Y</td>
 										<td class="send-to">
-											<input type="checkbox" class="keys" name="notification[{{ $item->user_id }}]"
-												id="notification[{{ $item->user_id }}]" value="{{ $item->firebase_key }}"
-												onclick="onCheckClicked();" checked>
+											<input type="checkbox" class="keys"
+												name="notification[]"
+												id="notification[]"
+												value="{{ $item->user_id }}" onclick="onCheckClicked();" checked>
 										</td>
 									</tr>
 									@endforeach
@@ -159,8 +160,8 @@
 					<input type="text" name="title" id="title" class="w-300" placeholder="제목" minlength="1"
 						maxlength="30" required>
 					<div class="h-5"></div>
-					<textarea id="body" name="body" class="w-300 h-400" placeholder="내용" minlength="1" maxlength="500"
-						rows="23" required></textarea>
+					<textarea id="content" name="content" class="w-300 h-400" placeholder="내용" minlength="1"
+						maxlength="500" rows="23" required></textarea>
 					<div class="h-5"></div>
 					<input type="submit" id="submit" class="submit" value="전송">
 				</div>

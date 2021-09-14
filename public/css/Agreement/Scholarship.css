@@ -1,0 +1,9 @@
+#scholarship_article span {
+	font-weight: bold;
+}
+
+#scholarship_article p {
+	width: 90%;
+	margin: 0 auto 1rem auto;
+	text-align: left;
+}
