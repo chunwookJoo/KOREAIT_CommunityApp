@@ -15,15 +15,22 @@
 
 .sign-section {
 	text-align: center;
+	margin-bottom: 2rem;
 }
 
-.agreement-btn {
+.sign-section .disabled {
+	opacity: 0.6 !important;
+	transition: 0.2s !important;
+}
+
+.sign-section .agreement-btn {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	border: none;
 	margin: 0 10px;
 	color: #fff;
 	padding: 8px;
 	border-radius: 8px;
+	transition: 0.2s;
 }
 
 .canvas {

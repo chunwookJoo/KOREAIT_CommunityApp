@@ -1,6 +1,7 @@
 img {
 	width: 100%;
 	height: 130px;
+	margin-bottom: 1rem;
 }
 
 #personal_article button {
@@ -15,8 +16,35 @@ img {
 
 #personal_article p {
 	margin-bottom: 2rem;
+	align-items: flex-start;
+}
+
+#personal_article p input {
+	margin-right: 4px;
+}
+
+#personal_article label {
+	border: 1px solid #cfcfcf;
+	padding: 4px 8px;
+	border-radius: 10px;
+	margin: 4px 8px;
+	color: #000000;
+	transition: 0.2s;
+	box-shadow: 1px 1px 4px #bbacac;
+}
+
+#personal_article label:active {
+	background-color: #d6d6d6;
+	transition: 0.2s;
 }
 
 #personal_article span {
 	font-weight: bold;
+}
+
+#disagreeInfo {
+	display: none;
+	color: #ff5858;
+	text-align: center;
+	word-break: keep-all;
 }

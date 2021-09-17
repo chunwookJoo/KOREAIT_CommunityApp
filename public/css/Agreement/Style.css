@@ -1,6 +1,7 @@
 @import url("./Scholarship.css");
 @import url("./Lecture.css");
 @import url("./Personal.css");
+@import url("./Software.css");
 
 .student-info-section {
 	margin: 0 auto 2rem auto;

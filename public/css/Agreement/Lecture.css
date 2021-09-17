@@ -1,10 +1,20 @@
+.student-info-section-lecture {
+	margin: 0 auto 2rem auto;
+	display: grid;
+	gap: 6px;
+	width: 90%;
+}
+
+.student-info-section-lecture div {
+	background-color: #f7ebff;
+	padding: 4px 8px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 1px #cfcfcf;
+}
+
 #lecture_article {
 	width: 90%;
 	margin: 0 auto 1rem auto;
-}
-
-#lecture_article p {
-	text-align: left;
 }
 
 #lecture_article span {

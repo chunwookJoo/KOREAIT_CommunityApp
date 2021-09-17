@@ -94,7 +94,6 @@ class LoginController extends Controller
 
 		$curl = CurlController::getInstance();
 		$response = $curl->curlGet($url_id);
-
 		$errorTitle = "로그인 실패";
 		$errorBody = "학번과 비밀번호를 확인해주세요.";
 
@@ -118,12 +117,13 @@ class LoginController extends Controller
 		Cookie::queue(Cookie::forget("studentID_delete"));
 		$this->log_login($request, $student_id, $response);
 
+		$request->session()->put("password", $request->studentPassword);
+		$request->session()->put("studentName", $response[0]["studentName"]);
+		$request->session()->put("birthday", $response[0]["birthday"]);
+		$request->session()->put("hakgi", $response[0]["hakgi"]);
+
 		if (!$response[0]["software"]) {
 			$request->session()->put("sosokName", $response[0]["sosokName"]);
-			$request->session()->put("birthday", $response[0]["birthday"]);
-			$request
-				->session()
-				->put("studentName", $response[0]["studentName"]);
 			return redirect()->route("Agreement", [
 				"type" => "software",
 			]);
@@ -135,10 +135,6 @@ class LoginController extends Controller
 					"major",
 					"{$response[0]["major"]} {$response[0]["degree"]}"
 				);
-			$request
-				->session()
-				->put("studentName", $response[0]["studentName"]);
-			$request->session()->put("birthday", $response[0]["birthday"]);
 			$request->session()->put("hp", $response[0]["hp"]);
 			$request->session()->put("address", $response[0]["address1"]);
 			return redirect()->route("Agreement", [
@@ -146,24 +142,18 @@ class LoginController extends Controller
 			]);
 		}
 		if ($response[0]["personal"]) {
-			$request->session()->put("birthday", $response[0]["birthday"]);
-			$request
-				->session()
-				->put("studentName", $response[0]["studentName"]);
 			return redirect()->route("Agreement", [
 				"type" => "personal",
 			]);
 		}
 		if (!$response[0]["scholarship"]) {
 			$request->session()->put("sosokName", $response[0]["sosokName"]);
-			$request->session()->put("birthday", $response[0]["birthday"]);
-			$request
-				->session()
-				->put("studentName", $response[0]["studentName"]);
 			return redirect()->route("Agreement", [
 				"type" => "scholarship",
 			]);
 		}
+
+		$request->session()->flush();
 		return redirect()->route("MainPage");
 	}
 

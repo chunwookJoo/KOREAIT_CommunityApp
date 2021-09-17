@@ -16,7 +16,11 @@ class Agreement extends Controller
 		$studentID = $request->cookie("studentID");
 		$today = date("Y.m.d");
 		$form = $request["type"];
-		$curl = new CurlController();
+
+		$birthday = $request->session()->get("birthday");
+		$studentName = $request->session()->get("studentName");
+		$hakgi = $request->session()->get("hakgi");
+
 		switch ($form) {
 			case "scholarship":
 				$title = "교육비 장학증서";
@@ -24,9 +28,6 @@ class Agreement extends Controller
 				$sosokArr = explode(" ", $sosokStr);
 				$sosokName = str_replace($sosokArr[1], "계열", $sosokStr);
 
-				$birthday = $request->session()->get("birthday");
-				$studentName = $request->session()->get("studentName");
-				//$request->session()->flush();
 				return view(
 					"Agreement.Scholarship",
 					compact(
@@ -35,40 +36,45 @@ class Agreement extends Controller
 						"birthday",
 						"studentName",
 						"studentID",
-						"today"
+						"today",
+						"hakgi"
 					)
 				);
 				break;
 			case "lecture":
 				$title = "학점은행제 수강신청서";
-				$major = $request->session()->get("major");
-				$studentName = $request->session()->get("studentName");
-				$birthday = $request->session()->get("birthday");
 				$hp = $request->session()->get("hp");
+				$major = $request->session()->get("major");
 				$address = $request->session()->get("address");
-				//$request->session()->flush();
+
 				return view(
 					"Agreement.Lecture",
 					compact(
 						"title",
 						"major",
 						"studentName",
+						"studentID",
 						"birthday",
 						"hp",
 						"address",
-						"today"
+						"today",
+						"hakgi"
 					)
 				);
 				break;
 			case "personal":
 				$title = "개인정보 수집·이용·제3자 제공 동의서";
-				$birthday = $request->session()->get("birthday");
-				$studentName = $request->session()->get("studentName");
 
-				//$request->session()->flush();
 				return view(
 					"Agreement.Personal",
-					compact("title", "birthday", "studentName", "today")
+					compact(
+						"title",
+						"birthday",
+						"studentName",
+						"studentID",
+						"today",
+						"hakgi"
+					)
 				);
 				break;
 			case "software":
@@ -77,10 +83,6 @@ class Agreement extends Controller
 				$sosokArr = explode(" ", $sosokStr);
 				$sosokName = str_replace($sosokArr[1], "계열", $sosokStr);
 
-				$birthday = $request->session()->get("birthday");
-				$studentName = $request->session()->get("studentName");
-
-				//$request->session()->flush();
 				return view(
 					"Agreement.Software",
 					compact(
@@ -89,7 +91,8 @@ class Agreement extends Controller
 						"birthday",
 						"studentName",
 						"studentID",
-						"today"
+						"today",
+						"hakgi"
 					)
 				);
 				break;

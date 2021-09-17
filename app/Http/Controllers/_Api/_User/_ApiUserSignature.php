@@ -84,6 +84,9 @@ class _ApiUserSignature extends Controller
 {
 	function post(Request $request)
 	{
+		Log::info($request->image);
+		Log::info($request->form_type);
+		Log::info($request->student_id);
 		$validated = $request->validate([
 			"image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
 		]);

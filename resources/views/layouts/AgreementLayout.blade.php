@@ -1,4 +1,3 @@
-{{-- 메인 메뉴 하단 네비바 --}}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -31,22 +30,34 @@
     	></script>
 	</head>
 	@yield('agreement-content')
+	<p id="studentID" style="display: none">{{$studentID}}</p>
+	<p id="hakgi" style="display: none">{{$hakgi}}</p>
 	<section class="sign-section">
-		<form>
-			<div>
-				<canvas id="jsCanvas" class="canvas" width="300" height="150"></canvas>
-				<div class="signature-text">
-				<span>마우스로 서명하세요.</span>
-				</div>
+		<div>
+			<canvas id="jsCanvas" class="canvas" width="300" height="150"></canvas>
+			<div class="signature-text">
+			<span>마우스로 서명하세요.</span>
 			</div>
-			<button class="agreement-btn" onclick="onClear()">서명 초기화</button>
-			{{-- <button onclick="btnClick()" class="agreement-btn">
-				제출
-			</button> --}}
-		</form>
-		<button onclick="btnClick()" id="submit_button" class="agreement-btn">
+		</div>
+		<button class="agreement-btn" onclick="onClear()">서명 초기화</button>
+		<button onclick="btnClick()" type="submit" id="submit_button" class="agreement-btn">
 			제출
 		</button>
+		{{-- <div class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">안내</h5>
+				</div>
+				<div class="modal-body">
+				  <p>개인정보 수집 이용에 모두 동의를 눌러주세요.</p>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-primary">닫기</button>
+				</div>
+			  </div>
+			</div>
+		  </div> --}}
 	</section>
 	<footer>
 		<span>한국IT직업전문학교장 귀하</span>
@@ -168,7 +179,6 @@
 		}
 
 		function onClear() {
-			canvas = document.getElementById('jsCanvas');
 			context.save();
 			context.setTransform(1, 0, 0, 1, 0, 0);
 			context.clearRect(0, 0, canvas.width, canvas.height);
@@ -179,38 +189,53 @@
 	<script>
 		let submitButton = document.getElementById("submit_button");
 		let jsCanvs = document.getElementById("jsCanvas");
-		console.log(jsCanvs);
+
 		submitButton.classList.add("disabled");
 		submitButton.disabled = true;
 
-		jsCanvs.addEventListener("touchmove", value => {
-			console.log(value);
-		});
+		jsCanvs.addEventListener("touchend", submitHandle);
+		jsCanvs.addEventListener("mouseup", submitHandle);
 
-		// function submitHandle() {
-
-		// }
+		function submitHandle() {
+			submitButton.classList.remove("disabled");
+			submitButton.disabled = false;
+		}
 
 		function btnClick() {
-			html2canvas(document.querySelector("#capture"), {}).then(canvas => {
-				saveAs(canvas.toDataURL(), "캡쳐.png");
+				html2canvas(document.querySelector("#capture"), {}).then(canvas => {
+				canvas.toBlob((blob) => {
+					const URL_POST_SIGNATURE = "https://app.koreait.kr/article/user/signature/";
+
+					var formData = new FormData();
+					formData.append("image", blob);
+					formData.append("student_id", document.getElementById("studentID").innerText);
+					formData.append("hakgi", document.getElementById("hakgi").innerText);
+					formData.append("form_type", location.pathname.split("\/")[2]);
+
+					var xhr = new XMLHttpRequest();
+					xhr.responseType = "json";
+					xhr.onload = () => {
+						var jsonResponse = xhr.response;
+						if (jsonResponse.RESULT == 100) location.href = "/AgreementCheck"
+					};
+
+					xhr.open("POST", URL_POST_SIGNATURE, true);
+					xhr.send(formData);
+				})
 			});
 		}
 
-
-		function saveAs(uri, filename) {
-			let link = document.createElement("a");
-			if (typeof link.download === "string") {
-				link.href = uri;
-				link.download = filename;
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
-			} else {
-				window.open(uri);
-			}
-		}
+		// function saveAs(uri, filename) {
+		// 	let link = document.createElement("a");
+		// 	if (typeof link.download === "string") {
+		// 		link.href = uri;
+		// 		link.download = filename;
+		// 		document.body.appendChild(link);
+		// 		link.click();
+		// 		document.body.removeChild(link);
+		// 	} else {
+		// 		window.open(uri);
+		// 	}
+		// }
 	</script>
-	{{-- <script src="{{ asset('/js/Agreement/Canvas.js') }}"></script> --}}
-	{{-- <script src="{{ asset('/js/Agreement/Capture.js') }}"></script> --}}
 </html>

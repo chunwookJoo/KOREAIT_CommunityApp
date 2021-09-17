@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Agreement;
+use App\Http\Controllers\AgreementChecker;
 use App\Http\Controllers\board\BoardList;
 use App\Http\Controllers\board\WritingPage;
 use App\Http\Controllers\board\DetailBoardPage;
@@ -181,6 +182,9 @@ Route::get("/Preferences/Message/detail/{id}", [MessageDetail::class, "index"])
 //로그인
 Route::post("/LoginCheck", [LoginController::class, "index"])->name(
 	"LoginControll"
+);
+Route::get("/AgreementCheck", [AgreementChecker::class, "check"])->name(
+	"AgreementChecker"
 );
 Route::get("/LoginCheck", [LoginController::class, "autoLogin"])->name(
 	"_LoginControll"

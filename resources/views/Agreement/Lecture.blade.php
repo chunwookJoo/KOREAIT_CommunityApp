@@ -2,7 +2,7 @@
 <link href="{{ asset('/css/Agreement/Style.css') }}" rel="stylesheet"/>
 <body class="global-section" id="capture">
 	<h1>{{$title}}</h1>
-	<section class="student-info-section">
+	<section class="student-info-section-lecture">
 		<div>
 			<span>
 				신청학위명&nbsp;:&nbsp;{{$major}}
@@ -33,10 +33,6 @@
 		<table>
 			수강신청과목
 			<tr>
-				<td>No</td>
-				<td>번호</td>
-			</tr>
-			<tr>
 				<td>교과목명</td>
 				<td>교과목명</td>
 			</tr>
@@ -51,10 +47,6 @@
 			<tr>
 				<td>신청학점</td>
 				<td>신청학점</td>
-			</tr>
-			<tr>
-				<td>계</td>
-				<td>계</td>
 			</tr>
 		</table>
 		<p>
