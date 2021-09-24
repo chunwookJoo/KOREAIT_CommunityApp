@@ -141,7 +141,7 @@ class LoginController extends Controller
 				"type" => "lecture",
 			]);
 		}
-		if ($response[0]["personal"]) {
+		if (!$response[0]["personal"]) {
 			return redirect()->route("Agreement", [
 				"type" => "personal",
 			]);

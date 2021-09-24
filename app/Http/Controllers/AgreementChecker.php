@@ -47,7 +47,7 @@ class AgreementChecker extends Controller
 				"type" => "personal",
 			]);
 		}
-		if ($response[0]["scholarship"]) {
+		if (!$response[0]["scholarship"]) {
 			$request->session()->put("sosokName", $response[0]["sosokName"]);
 			return redirect()->route("Agreement", [
 				"type" => "scholarship",
