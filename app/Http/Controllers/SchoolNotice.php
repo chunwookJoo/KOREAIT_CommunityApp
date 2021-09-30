@@ -9,10 +9,10 @@ class SchoolNotice extends Controller
 	public function getNotice($num, $size)
 	{
 		try {
-			$data = array(
-				'page_num' => $num,
-				'page_size' => $size,
-			);
+			$data = [
+				"page_num" => $num,
+				"page_size" => $size,
+			];
 			$curl = CurlController::getInstance();
 			$response = $curl->curlPost(env("URL_NEWS_LIST"), $data);
 			return $response;
