@@ -1,10 +1,12 @@
 html {
 	height: 100%;
 }
+
 .login-body {
 	padding-top: 5rem;
 	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
+
 /* 학교 로고 */
 .login-logo {
 	max-width: 100%;
@@ -12,14 +14,17 @@ html {
 	text-align: center;
 	margin-top: 5rem;
 }
+
 main section {
 	margin-top: 1.25rem;
 }
+
 /* 로그인 폼 */
 #loginForm {
 	padding-top: 2rem;
 	width: 16rem;
 }
+
 /* ID 입력 칸 */
 .form-group #exampleInputText {
 	width: 100%;
@@ -27,12 +32,14 @@ main section {
 	border-top-right-radius: 1.9rem;
 	border-bottom-right-radius: 1.9rem;
 }
+
 #loginStudentidForm {
 	background-color: #d7d7d7;
 	display: flex;
 	border: 1px solid #dadada;
 	border-radius: 2rem;
 }
+
 #loginStudentidForm i {
 	position: relative;
 	font-size: medium;
@@ -46,6 +53,7 @@ main section {
 	border-top-right-radius: 1.9rem;
 	border-bottom-right-radius: 1.9rem;
 }
+
 #loginPasswordForm {
 	background-color: #d7d7d7;
 	display: flex;
@@ -54,11 +62,13 @@ main section {
 	height: 2.6rem;
 	margin-top: 1rem;
 }
+
 #loginPasswordForm i {
 	position: relative;
 	font-size: medium;
 	padding: 0.7rem 0.5rem 0.6rem 0.7rem;
 }
+
 /* 로그인 버튼 */
 #loginButton {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -72,9 +82,11 @@ main section {
 	font-size: 1.2rem;
 	font-family: "Noto Sans KR", sans-serif;
 }
+
 #loginButton:active {
 	transform: scale(0.97);
 }
+
 /* 로그인, 초기화, 검색 */
 .login-option {
 	display: block;
@@ -91,9 +103,11 @@ main section {
 	font-family: "Noto Sans KR", sans-serif;
 	font-weight: bold;
 }
+
 #searchID:active {
 	transform: scale(0.97);
 }
+
 /* 비밀번호 초기화 버튼 */
 #resetPassword {
 	font-size: 1rem;
@@ -103,36 +117,32 @@ main section {
 	font-weight: bold;
 	font-family: "Noto Sans KR", sans-serif;
 }
+
 #resetPassword:active {
 	transform: scale(0.97);
 }
+
 /* 자동 로그인 체크박스 */
 .login-auto {
 	margin-top: 0.625rem;
 	font-family: "Noto Sans KR", sans-serif;
 }
+
 #modalDialog {
 	margin-top: 2rem;
 	font-family: "Noto Sans KR", sans-serif;
 }
+
 /*학번 검색 주민번호 입력 칸 */
 #modalBody {
 	padding: 2rem 3.5rem 1rem;
 	font-size: medium;
 }
+
 .search-social-number {
 	text-align: center;
 	font-size: medium;
 }
-/* .search-social-number > #jumin3,
-#jumin4 {
-	text-align: center;
-	font-size: larger;
-	margin-top: 5px;
-	width: 47%;
-	border-radius: 4px;
-	margin-bottom: 1.8rem;
-} */
 
 #jumin3,
 #jumin4 {
@@ -143,6 +153,7 @@ main section {
 	border-radius: 4px;
 	margin-bottom: 1.8rem;
 }
+
 /* 학번 검색 결과 */
 #demo {
 	text-align: center;
@@ -150,25 +161,31 @@ main section {
 	padding-bottom: 0.5rem;
 	font-size: 1.25rem;
 }
+
 /* 비밀번호 초기화 모달 */
 #staticBackdropLabel {
 	font-weight: bold;
 }
+
 #btn-reset-password {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	border-color: #707070;
 }
+
 /* 비밀번호 초기화 주민번호 입력 칸 */
 .row {
 	text-align: center;
 }
+
 .student-id {
 	margin-top: 0.3rem;
 	padding-bottom: 1rem;
 }
+
 .student-id span {
 	text-align: center;
 }
+
 #jumin1,
 #jumin2 {
 	text-align: center;
@@ -177,6 +194,7 @@ main section {
 	width: 100%;
 	border-radius: 4px;
 }
+
 #search-student-number-submit-btn {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	border-color: #707070;
@@ -187,6 +205,7 @@ main section {
 #searchIDModalDialog {
 	margin-top: 2rem;
 }
+
 #resetModalBody,
 #searchIDModalBody {
 	font-size: large;
@@ -194,14 +213,17 @@ main section {
 	padding: 4rem 2rem;
 	word-break: keep-all;
 }
+
 #resetModalDialog .btn {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	border-color: #707070;
 	color: #fff;
 }
+
 .searchIDResult {
 	font-weight: bold;
 }
+
 #searchIDModalDialog .btn {
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	border-color: #707070;

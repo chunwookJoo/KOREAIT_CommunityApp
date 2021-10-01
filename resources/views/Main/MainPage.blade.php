@@ -48,7 +48,7 @@
 									font-size: small;
 								"
 							>
-								공지</i
+							공지</i
 							>
 						</div>
 						<div>{{ $notice_data["title"] }}</div>

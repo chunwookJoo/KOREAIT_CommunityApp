@@ -25,57 +25,57 @@
                 </h1>
             </header>
         <main>
-                <div
-                    class="d-flex justify-content-center align-items-center container"
-                >
-                    <!-- 로그인 입력 부분 -->
-                    <form id="loginForm" name="loginForm" action="{{route('LoginControll')}}" method="POST">
-                    @csrf
-						<div id="loginStudentidForm">
-							<i class="fas fa-user"></i>
-							<div class="form-group">
-								<input
-									type="tel"
-									class="form-control"
-									id="exampleInputText"
-									name="studentID"
-									placeholder="Student ID"
-									maxlength="8"
-								/>
-							</div>
+			<div class="d-flex justify-content-center align-items-center container">
+				<!-- 로그인 입력 부분 -->
+				<form id="loginForm" name="loginForm" action="{{route('LoginControll')}}" method="POST">
+					@csrf
+					<div id="loginStudentidForm">
+						<i class="fas fa-user"></i>
+						<div class="form-group">
+							<input
+								type="tel"
+								class="form-control"
+								id="exampleInputText"
+								name="studentID"
+								placeholder="Student ID"
+								maxlength="8"
+							/>
 						</div>
-						<div id="loginPasswordForm">
-							<i class="fas fa-lock"></i>
-							<div class="form-group">
-								<input
-									type="password"
-									class="form-control"
-									name="studentPassword"
-									id="exampleInputPassword1"
-									placeholder="Password"
-								/>
-							</div>
+					</div>
+					<div id="loginPasswordForm">
+						<i class="fas fa-lock"></i>
+						<div class="form-group">
+							<input
+								type="password"
+								class="form-control"
+								name="studentPassword"
+								id="exampleInputPassword1"
+								placeholder="Password"
+							/>
 						</div>
-                        <div class="login-auto">
-                            <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="exampleCheck1"
-                                name="auto_Login"
-                            />
-                            <label class="form-check-label" for="exampleCheck1" style="font-weight: bold"
-                                >자동 로그인</label
-                            >
-                        </div>
-                        <div>
-                            <button
-								type="submit"
-                                class="btn btn-primary"
-								id="loginButton"
-                            >로그인</button>
-                        </div>
-                    </form>
-                </div>
+					</div>
+					<div class="login-auto">
+						<input
+							type="checkbox"
+							class="form-check-input"
+							id="exampleCheck1"
+							name="auto_Login"
+						/>
+						<label
+							class="form-check-label"
+							for="exampleCheck1"
+							style="font-weight: bold"
+						>자동 로그인</label>
+					</div>
+					<div>
+						<button
+							type="submit"
+							class="btn btn-primary"
+							id="loginButton"
+						>로그인</button>
+					</div>
+				</form>
+			</div>
             <div class="login-option">
                 <div>
                     <button
@@ -84,9 +84,7 @@
                         data-toggle="modal"
                         data-target="#staticBackdrop_PW_Reset"
 						data-backdrop="false"
-                    >
-                        PW 초기화
-                    </button>
+                    >PW 초기화</button>
                     <span>|</span>
                     <button
                         type="button"
@@ -94,9 +92,7 @@
                         data-toggle="modal"
                         data-target="#staticBackdrop"
 						data-backdrop="false"
-                    >
-                        <i class="fas fa-search"> 학번 검색</i>
-                    </button>
+                    ><i class="fas fa-search"> 학번 검색</i></button>
                 </div>
             </div>
             <!--비밀번호 초기화 모달 창 띄우기-->
@@ -117,71 +113,64 @@
                             </h4>
 						</div>
 						<div id="modalBody">
-								<label>
-									학번을 입력하세요.
-								</label>
-								<div class="student-id">
+							<label>학번을 입력하세요.</label>
+							<div class="student-id">
+								<input
+									type="tel"
+									class="form-control"
+									placeholder="Student ID"
+									id="inputStudentID"
+									name="resetStudentID"
+									maxlength="8"
+								/>
+							</div>
+							<label>주민번호를 입력하세요.</label>
+							<div class="row">
+								<div class=col>
 									<input
-										type="tel"
-										class="form-control"
-										placeholder="Student ID"
-										id="inputStudentID"
-										name="resetStudentID"
-										maxlength="8"
+									id="jumin1"
+									class="form-control"
+									type="tel"
+									placeholder="First"
+									name="inputSocialNumFirst"
+									maxlength="6"
 									/>
 								</div>
-								<label>
-									주민번호를 입력하세요.
-								</label>
-									<div class="row">
-										<div class=col>
-											<input
-											id="jumin1"
-											class="form-control"
-											type="tel"
-											placeholder="First"
-											name="inputSocialNumFirst"
-											maxlength="6"
-										/>
-										</div>
-										<div class="col">
-											<input
-											id="jumin2"
-											class="form-control"
-											type="tel"
-											placeholder="Last"
-											name="inputSocialNumSecond"
-											maxlength="7"
-										/>
-										</div>
-									</div>
+								<div class="col">
+									<input
+									id="jumin2"
+									class="form-control"
+									type="tel"
+									placeholder="Last"
+									name="inputSocialNumSecond"
+									maxlength="7"
+									/>
 								</div>
-								<div class="modal-footer">
-									<button
-										type="button"
-										class="btn btn-secondary"
-										data-dismiss="modal"
-									>
-										닫기
-									</button>
-									<button
-										type="submit"
-										class="btn btn-primary"
-										id="btn-reset-password"
-									>
-										초기화
-									</button>
-								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-dismiss="modal"
+							>닫기</button>
+							<button
+								type="submit"
+								class="btn btn-primary"
+								id="btn-reset-password"
+							>초기화</button>
+						</div>
 
 						<!-- 비밀번호 초기화 결과 (Success / Fail) -->
-							<div
-                            class="modal fade"
-                            id="resetSuccess"
-                            data-backdrop="static"
-                            tabindex="-1"
-                            role="dialog"
-                            aria-labelledby="staticBackdropLabel"
-                            aria-hidden="true"
+						{{-- 초기화 성공 --}}
+						<div
+						class="modal fade"
+						id="resetSuccess"
+						data-backdrop="static"
+						tabindex="-1"
+						role="dialog"
+						aria-labelledby="staticBackdropLabel"
+						aria-hidden="true"
                         >
                             <div class="modal-dialog" id="resetModalDialog" role="document">
                                 <div class="modal-content">
@@ -198,21 +187,20 @@
 											type="button"
 											class="btn"
 											data-dismiss="modal"
-										>
-											확인
-										</button>
+										>확인</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-							<div
-							class="modal fade"
-							id="resetFail"
-							data-backdrop="static"
-							tabindex="-1"
-							role="dialog"
-							aria-labelledby="staticBackdropLabel"
-							aria-hidden="true"
+						{{-- 초기화 실패 --}}
+						<div
+						class="modal fade"
+						id="resetFail"
+						data-backdrop="static"
+						tabindex="-1"
+						role="dialog"
+						aria-labelledby="staticBackdropLabel"
+						aria-hidden="true"
 						>
 							<div class="modal-dialog" id="resetModalDialog" role="document">
 								<div class="modal-content">
@@ -229,9 +217,7 @@
 											type="button"
 											class="btn"
 											data-dismiss="modal"
-										>
-											확인
-										</button>
+										>확인</button>
 									</div>
 								</div>
 							</div>
@@ -249,58 +235,60 @@
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
             >
-                <div class="modal-dialog search-id-modal" id="modalDialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="staticBackdropLabel">
-                                학번 검색
-                            </h4>
-                        </div>
-                        <div id="modalBody">
-							<label>이름을 입력해주세요.</label>
-							<input type="text"
-								   class="form-control"
-								   placeholder="Name"
-								   name="studentName"
-								   id="search-student-number-input-name"/>
+			<div class="modal-dialog search-id-modal" id="modalDialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="staticBackdropLabel">
+							학번 검색
+						</h4>
+					</div>
+					<div id="modalBody">
+						<label>이름을 입력해주세요.</label>
+						<div class="student-id">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Name"
+								name="studentName"
+								id="search-student-number-input-name"
+							/>
+						</div>
+						<label>주민번호를 입력해주세요.</label>
+						<div class="row">
+							<div class="col">
+								<input
+								class="form-control"
+								placeholder="First"
+								type="tel"
+								id="jumin3"
+								maxlength="6"
+								/>
+							</div>
+							<div class="col">
+								<input
+								type="tel"
+								class="form-control"
+								placeholder="Last"
+								id="jumin4"
+								maxlength="7"
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>닫기</button>
 
-							<label>주민번호를 입력해주세요.</label>
-							<div class="row">
-								<div class="col">
-									<input
-									class="form-control"
-									placeholder="First"
-									type="tel"
-									id="jumin3"
-									maxlength="6"
-								/>
-								</div>
-								<div class="col">
-									<input
-									type="tel"
-									class="form-control"
-									placeholder="Last"
-									id="jumin4"
-									maxlength="7"
-								/>
-								</div>
-								<div class="modal-footer">
-									<button
-											type="button"
-											class="btn btn-secondary"
-											data-dismiss="modal"
-										>
-											닫기
-									</button>
-									<button
-										id='search-student-number-submit-btn'
-										type="button"
-										class="btn btn-primary">
-										검색
-									</button>
-								</div>
-                        	</div>
-                    	</div>
+						<button
+							id='search-student-number-submit-btn'
+							type="button"
+							class="btn btn-primary"
+						>검색</button>
+					</div>
+
 					<!-- 학번검색 결과 (Success / Fail) -->
 					<div
 						class="modal fade"
@@ -323,16 +311,14 @@
 									<span class="searchIDResult">
 										{{-- 학번 검색 결과 --}}
 									</span>
-									<label>입니다. </label>
+									<label>입니다.</label>
 								</div>
 								<div class="modal-footer">
 									<button
 										type="button"
 										class="btn"
 										data-dismiss="modal"
-									>
-										확인
-									</button>
+									>확인</button>
 								</div>
 							</div>
 						</div>
@@ -361,17 +347,15 @@
 										type="button"
 										class="btn"
 										data-dismiss="modal"
-									>
-										확인
-									</button>
+									>확인</button>
 								</div>
 							</div>
 						</div>
 					</div>
-                </div>
-            </div>
+				</div>
+			</div>
 		</main>
-		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/LoginError.js"></script>
 		@if($error == true)
 		<script>
 			errorMessage( "{{$errorTitle}}", "{{$errorBody}}" );
