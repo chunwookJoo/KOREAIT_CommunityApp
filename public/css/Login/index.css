@@ -1,0 +1,90 @@
+@import url("./modal.css");
+
+html {
+	height: var(--height-100);
+}
+
+.login-body {
+	padding-top: 5rem;
+	background: var(--color-loginpage-background);
+	font-family: var(--font-style);
+}
+
+/* 학교 로고 */
+.login-logo {
+	max-width: var(--width-100);
+	max-height: var(--height-100);
+	text-align: center;
+	margin-top: 5rem;
+}
+
+/* 로그인 폼 */
+#loginForm {
+	margin-top: 2rem;
+	width: 16rem;
+}
+
+/* ID / Password 입력 칸 */
+#loginStudentidForm,
+#loginPasswordForm {
+	display: flex;
+	background-color: var(--color-loginform-background);
+	border: 1px solid var(--color-loginform-background);
+	border-radius: var(--radius-loginform);
+}
+
+#loginPasswordForm {
+	margin-top: 1rem;
+}
+
+#loginStudentidForm i,
+#loginPasswordForm i {
+	padding: 0.7rem 0.5rem 0.6rem 0.7rem;
+}
+
+.form-group #exampleInputText,
+.form-group #exampleInputPassword1 {
+	height: 2.5rem;
+	width: var(--width-100);
+	border-top-right-radius: var(--radius-loginform);
+	border-bottom-right-radius: var(--radius-loginform);
+}
+
+/* 자동 로그인 체크박스 */
+.login-auto {
+	margin-top: 0.625rem;
+}
+
+#loginButton {
+	background: var(--color-button-background);
+	border-color: var(--color-button-border);
+	color: var(--color-white);
+	width: var(--width-100);
+	margin: 1.25rem 0 0.625rem 0;
+	height: 2.8rem;
+	border-radius: var(--radius-loginform);
+	font-size: 1.2rem;
+}
+
+#loginButton:active {
+	transform: scale(0.97);
+}
+
+/* 초기화, 검색 */
+.login-option {
+	text-align: center;
+}
+
+/* 학번 검색 버튼 */
+#searchID,
+#resetPassword {
+	background-color: transparent;
+	border: 0px transparent;
+	outline: 0;
+	font-weight: bold;
+}
+
+#searchID:active,
+#resetPassword:active {
+	transform: scale(0.97);
+}

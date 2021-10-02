@@ -6,12 +6,13 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
         />
-        <link rel="stylesheet" type="text/css" href="css/Login.css" />
+        <link rel="stylesheet" type="text/css" href="css/Login/index.css" />
 		<link rel="stylesheet"
 		      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -92,7 +93,7 @@
                         data-toggle="modal"
                         data-target="#staticBackdrop"
 						data-backdrop="false"
-                    ><i class="fas fa-search"> 학번 검색</i></button>
+                    ><i class="fas fa-search"></i> 학번 검색</button>
                 </div>
             </div>
             <!--비밀번호 초기화 모달 창 띄우기-->
@@ -119,7 +120,7 @@
 									type="tel"
 									class="form-control"
 									placeholder="Student ID"
-									id="inputStudentID"
+									id="studentIDInput"
 									name="resetStudentID"
 									maxlength="8"
 								/>
@@ -156,8 +157,8 @@
 							>닫기</button>
 							<button
 								type="submit"
-								class="btn btn-primary"
-								id="btn-reset-password"
+								class="btn btn-primary modal-button"
+								id="resetStudentPasswordButton"
 							>초기화</button>
 						</div>
 
@@ -172,20 +173,20 @@
 						aria-labelledby="staticBackdropLabel"
 						aria-hidden="true"
                         >
-                            <div class="modal-dialog" id="resetModalDialog" role="document">
+                            <div class="modal-dialog" id="resultModalDialog" role="document">
                                 <div class="modal-content">
 									<div class="modal-header">
 										<h4 class="modal-title" id="staticBackdropLabel">
 											비밀번호 초기화 성공 ✅
 										</h4>
 									</div>
-                                    <div id="resetModalBody">
+                                    <div class="resultModalDialogBody">
                                         비밀번호가 주민번호 뒷자리로 <br> 초기화 되었습니다.
                                     </div>
                                     <div class="modal-footer">
 										<button
 											type="button"
-											class="btn"
+											class="btn modal-button"
 											data-dismiss="modal"
 										>확인</button>
                                     </div>
@@ -202,20 +203,20 @@
 						aria-labelledby="staticBackdropLabel"
 						aria-hidden="true"
 						>
-							<div class="modal-dialog" id="resetModalDialog" role="document">
+							<div class="modal-dialog" id="resultModalDialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
 										<h4 class="modal-title" id="staticBackdropLabel">
 											비밀번호 초기화 실패 🚫
 										</h4>
 									</div>
-									<div id="resetModalBody">
+									<div class="resultModalDialogBody">
 										학번 또는 주민번호가 틀립니다. <br> 다시 확인해주세요.
 									</div>
 									<div class="modal-footer">
 										<button
 											type="button"
-											class="btn"
+											class="btn modal-button"
 											data-dismiss="modal"
 										>확인</button>
 									</div>
@@ -235,7 +236,7 @@
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
             >
-			<div class="modal-dialog search-id-modal" id="modalDialog" role="document">
+			<div class="modal-dialog" id="modalDialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h4 class="modal-title" id="staticBackdropLabel">
@@ -250,7 +251,7 @@
 								class="form-control"
 								placeholder="Name"
 								name="studentName"
-								id="search-student-number-input-name"
+								id="studentNameInput"
 							/>
 						</div>
 						<label>주민번호를 입력해주세요.</label>
@@ -283,30 +284,31 @@
 						>닫기</button>
 
 						<button
-							id='search-student-number-submit-btn'
+							id="searchStudentIDButton"
 							type="button"
-							class="btn btn-primary"
+							class="btn btn-primary modal-button"
 						>검색</button>
 					</div>
 
 					<!-- 학번검색 결과 (Success / Fail) -->
+					{{-- 검색 성공 --}}
 					<div
-						class="modal fade"
-						id="searchStudentIDSuccess"
-						data-backdrop="static"
-						tabindex="-1"
-						role="dialog"
-						aria-labelledby="staticBackdropLabel"
-						aria-hidden="true"
+					class="modal fade"
+					id="searchStudentIDSuccess"
+					data-backdrop="static"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="staticBackdropLabel"
+					aria-hidden="true"
 					>
-						<div class="modal-dialog" id="searchIDModalDialog" role="document">
+						<div class="modal-dialog" id="resultModalDialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<h4 class="modal-title" id="staticBackdropLabel">
 										학번 검색 성공 ✅
 									</h4>
 								</div>
-								<div id="searchIDModalBody">
+								<div class="resultModalDialogBody">
 									<label>학번은 </label>
 									<span class="searchIDResult">
 										{{-- 학번 검색 결과 --}}
@@ -316,36 +318,37 @@
 								<div class="modal-footer">
 									<button
 										type="button"
-										class="btn"
+										class="btn modal-button"
 										data-dismiss="modal"
 									>확인</button>
 								</div>
 							</div>
 						</div>
 					</div>
+					{{-- 초기화 실패 --}}
 					<div
-						class="modal fade"
-						id="searchStudentIDFail"
-						data-backdrop="static"
-						tabindex="-1"
-						role="dialog"
-						aria-labelledby="staticBackdropLabel"
-						aria-hidden="true"
+					class="modal fade"
+					id="searchStudentIDFail"
+					data-backdrop="static"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="staticBackdropLabel"
+					aria-hidden="true"
 					>
-						<div class="modal-dialog" id="searchIDModalDialog" role="document">
+						<div class="modal-dialog" id="resultModalDialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<h4 class="modal-title" id="staticBackdropLabel">
 										학번 검색 실패 🚫
 									</h4>
 								</div>
-								<div id="searchIDModalBody">
+								<div class="resultModalDialogBody">
 									이름 또는 주민번호가 틀립니다. <br> 다시 확인해주세요.
 								</div>
 								<div class="modal-footer">
 									<button
 										type="button"
-										class="btn"
+										class="btn modal-button"
 										data-dismiss="modal"
 									>확인</button>
 								</div>

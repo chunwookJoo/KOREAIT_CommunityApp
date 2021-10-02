@@ -1,9 +1,7 @@
 var jumin3 = document.getElementById("jumin3");
 var jumin4 = document.getElementById("jumin4");
-var studentName = document.getElementById("search-student-number-input-name");
-var searchStudentNumBtn = document.getElementById(
-	"search-student-number-submit-btn"
-);
+var studentName = document.getElementById("studentNameInput");
+var searchStudentNumBtn = document.getElementById("searchStudentIDButton");
 const searchIDModalBody = document.querySelector(".searchIDResult");
 
 searchStudentNumBtn.addEventListener("click", () => {
@@ -12,15 +10,15 @@ searchStudentNumBtn.addEventListener("click", () => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+			"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
 		},
 		body: JSON.stringify({
 			studentName: studentName.value,
-			socialNum: socialNum,
-		}),
+			socialNum: socialNum
+		})
 	})
-		.then((response) => response.json())
-		.then((json) => {
+		.then(response => response.json())
+		.then(json => {
 			if (json[0].RESULT == 100) {
 				$("#searchStudentIDSuccess").modal("show");
 				searchIDModalBody.innerText = `${json[0].HAKBUN}`;

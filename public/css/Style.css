@@ -1,0 +1,43 @@
+:root {
+	/* color */
+	--color-button-background: linear-gradient(
+		135deg,
+		#667eea 0%,
+		#764ba2 100%
+	);
+	--color-loginpage-background: linear-gradient(
+		135deg,
+		#f5f7fa 0%,
+		#c3cfe2 100%
+	);
+	--color-loginform-background: #d7d7d7;
+	--color-button-border: #707070;
+	--color-white: #ffffff;
+	--color-blue: #3b88c3;
+	--color-hoverblue: #79aed6;
+	--color-yellow: #fbbe28;
+	--color-hoveryellow: #fde198;
+	--color-pink: #fd7f84;
+	--color-hoverpink: #faafb1;
+	--color-light-grey: #dfdfdf;
+
+	/* font-style */
+	--font-style: "Noto Sans KR", sans-serif;
+
+	/* animation */
+	--animation-duration: transform 300ms ease;
+
+	/* width size */
+	--width-100: 100%;
+
+	/* height size */
+	--height-100: 100%;
+
+	/* size */
+	--size-button: 60px;
+	--font-size-colorButton: 20px;
+	--base-space: 8px;
+
+	/* radius */
+	--radius-loginform: 2rem;
+}

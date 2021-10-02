@@ -1,5 +1,5 @@
-var resetBtn = document.getElementById("btn-reset-password");
-var resetStudentId = document.getElementById("inputStudentID");
+var resetBtn = document.getElementById("resetStudentPasswordButton");
+var resetStudentId = document.getElementById("studentIDInput");
 var resetSocialNumFrist = document.getElementById("jumin1");
 var resetSocialNumSecond = document.getElementById("jumin2");
 
@@ -13,15 +13,15 @@ resetBtn.addEventListener("click", () => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+			"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
 		},
 		body: JSON.stringify({
 			ResetStudentID: resetStudentId.value,
-			FullSocialNum: fullSocialNum,
-		}),
+			FullSocialNum: fullSocialNum
+		})
 	})
-		.then((response) => response.json())
-		.then((json) => {
+		.then(response => response.json())
+		.then(json => {
 			if (json.RESULT == 100) {
 				$("#resetSuccess").modal("show");
 				$("#resetSuccess").removeClass("fade");

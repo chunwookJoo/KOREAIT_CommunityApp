@@ -1,0 +1,48 @@
+@import url("../Style.css");
+
+/* 모달창 부분 */
+#modalDialog {
+	margin-top: 2rem;
+	font-family: var(--font-style);
+}
+
+#modalBody {
+	margin: 2rem 3.5rem 1rem;
+}
+
+.modal-button {
+	background: var(--color-button-background) !important;
+	border-color: var(--color-button-border) !important;
+	color: var(--color-white) !important;
+}
+
+.student-id {
+	margin: 0.3rem 0 1rem 0;
+}
+
+#jumin1,
+#jumin2,
+#jumin3,
+#jumin4 {
+	margin-top: 0.3rem;
+}
+
+/* pw초기화, 학번검색 완료/실패 모달 창 */
+#resultModalDialog h4 {
+	font-weight: bold;
+}
+
+#resultModalDialog {
+	margin-top: 2rem;
+}
+
+.resultModalDialogBody {
+	font-size: large;
+	text-align: center;
+	padding: 4rem 2rem;
+	word-break: keep-all;
+}
+
+.searchIDResult {
+	font-weight: bold;
+}
