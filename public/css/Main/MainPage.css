@@ -14,9 +14,8 @@
 }
 
 .list-group {
-	list-style: none;
 	padding-top: 8rem;
-	margin-bottom: 60px;
+	margin-bottom: var(--board-ul-margin-bottom);
 }
 
 .list-group .list {
@@ -32,19 +31,17 @@
 	padding: var(--board-li-base-padding);
 }
 
-.list-group .notice-list-title {
+.list-group .notice-list-title div {
 	font-size: medium;
-	word-break: keep-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .write-day {
 	font-size: small;
 }
 
-/* .write-day span {
-	padding-right: 0.5rem;
-} */
-
 .list :active {
-	background-color: #eeeeee;
+	background-color: var(--color-li-click-background);
 }

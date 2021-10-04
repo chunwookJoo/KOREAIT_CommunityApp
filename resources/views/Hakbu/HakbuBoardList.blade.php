@@ -47,7 +47,7 @@
 			</nav>
 		</div>
 	</header>
-	<ul id="notice-list">
+	<ul id="notice-list" style="margin-bottom: 60px">
 		<div class="collapse" id="searchCollapse">
 			<form id="list-search-form" action="#" method="POST">
 				@csrf
@@ -75,7 +75,9 @@
 			<li>
 				<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group' => 0 ])}}">
 					<h5>
-						{{ $item["title"] }}
+						<div>
+							{{ $item["title"] }}
+						</div>
 					</h5>
 					<div class="write-day">
 						<span>{{ $item["author"] }}</span>

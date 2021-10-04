@@ -142,7 +142,9 @@
 			<li>
 				<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group' => $board_group ])}}">
 					<h5>
-						{{ $item["title"] }}
+						<div>
+							{{ $item["title"] }}
+						</div>
 					</h5>
 					<div class="write-day">
 						<span>{{ $item["author"] ?? "익명" }}</span>
