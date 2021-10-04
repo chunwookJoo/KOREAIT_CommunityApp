@@ -1,5 +1,5 @@
 {{-- 내 게시글 --}}
-@extends('layouts.MenuTitle-Back')
+@extends('Layouts.MenuTitle-Back')
 <link href="{{ asset('/css/Board/MyBoard.css') }}" rel="stylesheet" />
 
 <body>

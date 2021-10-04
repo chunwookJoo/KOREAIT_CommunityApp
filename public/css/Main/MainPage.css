@@ -1,0 +1,50 @@
+/* KOREAIT 커뮤니티 HOME.blade */
+@import url("../Layouts/MainTitleLayout.css");
+
+.menu-title {
+	display: table;
+	width: 100%;
+}
+
+.menu-title span {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	padding-left: 3rem;
+}
+
+.list-group {
+	list-style: none;
+	padding-top: 8rem;
+	margin-bottom: 60px;
+}
+
+.list-group .list {
+	border-bottom: 1px solid var(--color-footer-navbar-icon);
+}
+
+.list-group a {
+	color: var(--color-black);
+	text-decoration-line: none;
+}
+
+.list-group li {
+	padding: var(--board-li-base-padding);
+}
+
+.list-group .notice-list-title {
+	font-size: medium;
+	word-break: keep-all;
+}
+
+.write-day {
+	font-size: small;
+}
+
+/* .write-day span {
+	padding-right: 0.5rem;
+} */
+
+.list :active {
+	background-color: #eeeeee;
+}

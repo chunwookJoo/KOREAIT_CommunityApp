@@ -1,4 +1,4 @@
-@extends('layouts.MenuTitle-Back')
+@extends('Layouts.MenuTitle-Back')
 <body>
 	@section('menu-title-back')
 	<link href="{{ asset('/css/Preferences/MessageDetail.css') }}" rel="stylesheet" />

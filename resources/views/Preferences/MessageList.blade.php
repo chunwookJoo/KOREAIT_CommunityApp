@@ -1,5 +1,5 @@
 {{-- 내 게시글 --}}
-@extends('layouts.MenuTitle-Back')
+@extends('Layouts.MenuTitle-Back')
 @section('menu-title-back')
 <link href="{{ asset('/css/Preferences/MessageList.css') }}" rel="stylesheet" />
 

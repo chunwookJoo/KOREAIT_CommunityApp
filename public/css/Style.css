@@ -5,6 +5,11 @@
 		#667eea 0%,
 		#764ba2 100%
 	);
+	--color-mainpagelogo-background: linear-gradient(
+		180deg,
+		#667eea 0%,
+		#764ba2 100%
+	);
 	--color-loginpage-background: linear-gradient(
 		135deg,
 		#f5f7fa 0%,
@@ -12,7 +17,19 @@
 	);
 	--color-loginform-background: #d7d7d7;
 	--color-button-border: #707070;
+	--color-menu-title: #764ba2;
+
+	--color-writesearch-icon-background: #080e54;
+
+	--color-footer-navbar-background: #f3f3f3;
+	--color-footer-navbar-icon: #cfcfcf;
+
+	--color-navbar-on: #50528e;
+	--color-navbar-on-background: #e2e2e2;
+	--color-navbar-border: #b4b4b4;
+
 	--color-white: #ffffff;
+	--color-black: #000000;
 	--color-blue: #3b88c3;
 	--color-hoverblue: #79aed6;
 	--color-yellow: #fbbe28;
@@ -24,9 +41,6 @@
 	/* font-style */
 	--font-style: "Noto Sans KR", sans-serif;
 
-	/* animation */
-	--animation-duration: transform 300ms ease;
-
 	/* width size */
 	--width-100: 100%;
 
@@ -34,6 +48,7 @@
 	--height-100: 100%;
 
 	/* size */
+	--board-li-base-padding: 0.625rem 1rem;
 	--size-button: 60px;
 	--font-size-colorButton: 20px;
 	--base-space: 8px;

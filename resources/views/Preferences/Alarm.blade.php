@@ -1,4 +1,4 @@
-@extends('layouts.MenuTitle-Back')
+@extends('Layouts.MenuTitle-Back')
 	@section('menu-title-back') @endsection
 	<link href="{{ asset('/css/Preferences/AppVersion.css') }}" rel="stylesheet" />
 	<link rel="stylesheet"

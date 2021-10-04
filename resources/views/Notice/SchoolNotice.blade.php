@@ -1,5 +1,5 @@
-	@extends('layouts.MenuTitle-Back')
-		<link href="{{ asset('/css/Notice.css') }}" rel="stylesheet" />
+	@extends('Layouts.MenuTitle-Back')
+		<link href="{{ asset('/css/Notice/SchoolNotice.css') }}" rel="stylesheet" />
 	<body>
 		@section('menu-title-back')
 		@endsection

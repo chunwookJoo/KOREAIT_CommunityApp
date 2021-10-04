@@ -1,4 +1,4 @@
-@extends('layouts.AgreementLayout')
+@extends('Layouts.AgreementLayout')
 <link href="{{ asset('/css/Agreement/Style.css') }}" rel="stylesheet"/>
 <body class="global-section" id="capture">
 	<h1>{{$title}}</h1>

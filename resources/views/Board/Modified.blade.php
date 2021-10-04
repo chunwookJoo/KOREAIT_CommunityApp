@@ -1,4 +1,4 @@
-@extends('layouts.BottomNavigation')
+@extends('Layouts.BottomNavigation')
 
 @section('content')
 	<form action="{{route('PostModifiedBoard',['id'=>$board_id])}}" method="POST">

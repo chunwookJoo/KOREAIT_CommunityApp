@@ -1,5 +1,5 @@
 {{-- 더보기 --}}
-@extends('layouts.BottomNavigation') @extends('layouts.MenuTitle')
+@extends('Layouts.BottomNavigation') @extends('Layouts.MenuTitle')
 @section('content')
 <link href="{{ asset('/css/Preferences/Preferences.css') }}" rel="stylesheet" />
 <body>

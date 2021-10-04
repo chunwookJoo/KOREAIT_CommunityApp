@@ -1,28 +1,30 @@
-@extends('layouts.BottomNavigation') @section('content')
-
+{{-- 학부게시판 --}}
+@extends('Layouts.BottomNavigation')
+@section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Board/BoardList.css') }}" />
 
 <body class="community-body">
-	<section class="community-home">
-		<div class="community-logo-img">
-			<img src="{{ asset('images/Logo.png') }}" width="100px" height="100px" />
-		</div>
-	</section>
+	@include("Layouts.CommunityLogoLayout")
 	<header>
 		<div class="title" role="banner">
-			<h1 style="margin-bottom: 0px" class="menu-title">
-				<a class="search-button" href="#searchCollapse" data-toggle="collapse" role="button"
-					aria-expanded="false" aria-controls="searchCollapse"><i class="fas fa-search"
-						style="font-size: 17px">
-					</i>
+			<h1 class="menu-title">
+				<a
+					class="search-button"
+					href="#searchCollapse"
+					data-toggle="collapse"
+					role="button"
+					aria-expanded="false"
+					aria-controls="searchCollapse"
+					><i class="fas fa-search" style="font-size: 17px"></i>
 				</a>
 				<span>KOREAIT 커뮤니티</span>
 				<a class="write-button" href="{{ route('Writing') }}">
-					<i class="fas fa-edit" style="font-size: 17px"></i></a>
+					<i class="fas fa-edit" style="font-size: 17px"></i>
+				</a>
 			</h1>
 			<nav>
 				<div class="community-nav-1">
-					<a class="nav1-on" href="{{route('HakbuBoardList', ['major'=>$board_code])}}">학부게시판</a>
+					<a class="nav1-on" href="{{route('HakbuBoardList', ['major'=>'E'])}}">학부게시판</a>
 					<a href="{{ route('MainPage') }}">HOME</a>
 					<a href="{{route('BoardList', ['page'=>1, 'group'=>901])}}">학생 마당</a>
 				</div>
@@ -87,10 +89,6 @@
 		</div>
 		@endforeach
 	</ul>
-	<script>
-		var major = "{{ $major }}";
-		console.log(major);
-	</script>
 	<script src="{{ asset('js/HakbuBoardList.js') }}"></script>
 	<script src="{{ asset('js/boardlist.js') }}"></script>
 </body>

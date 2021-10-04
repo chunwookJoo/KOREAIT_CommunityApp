@@ -1,6 +1,6 @@
-@extends('layouts.BottomNavigation') @extends('layouts.MenuTitle')
+@extends('Layouts.BottomNavigation') @extends('Layouts.MenuTitle')
 @section('content')
-<link href="{{ asset('/css/Community.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/Board/BoardList.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/Haksa/SemesterPoint.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/Haksa/EvalList.css') }}" rel="stylesheet" />
 <body>

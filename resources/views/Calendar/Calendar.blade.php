@@ -1,6 +1,6 @@
 {{-- 시간표 --}}
-@extends('layouts.BottomNavigation')
-@extends('layouts.MenuTitle')
+@extends('Layouts.BottomNavigation')
+@extends('Layouts.MenuTitle')
 @section('content')
 <link href="{{ asset('/css/Calendar.css') }}" rel="stylesheet">
 	<body>

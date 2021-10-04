@@ -1,4 +1,4 @@
-@extends('layouts.ContentBottomNavigation') @section('notice-board-content')
+@extends('Layouts.ContentBottomNavigation') @section('notice-board-content')
 <link href="{{ asset('/css/Board/DetailBoard.css') }}" rel="stylesheet" />
 <link
 	rel="stylesheet"
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-@extends('layouts.MenuTitle-Back')
+@extends('Layouts.MenuTitle-Back')
 <body>
 	@section('menu-title-back') @endsection
 	<section>

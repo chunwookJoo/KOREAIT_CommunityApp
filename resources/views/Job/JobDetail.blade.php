@@ -1,4 +1,4 @@
-@extends('layouts.BottomNavigation') @extends('layouts.MenuTitle-Back')
+@extends('Layouts.BottomNavigation') @extends('Layouts.MenuTitle-Back')
 <link href="{{ asset('css/Job/JobArticle.css') }}" rel="stylesheet" />
 @section('content')
 <body>
