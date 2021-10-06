@@ -10,21 +10,21 @@
 	<link href="{{ asset('/css/Layouts/ContentBottomNavigation.css') }}" rel="stylesheet" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
+@yield('board-footer-content')
 <body>
-	@yield('board-footer-content')
 	<footer>
 		<nav class="btn-fixed-bottom" style="display:flex">
 			<div>
 				@if ($is_like)
-					<a href="javascript:void(0)" style="color:#0d6efd" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
+					<a href="javascript:void(0)" style="color:#0a58ca" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@else
 					<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@endif
 
 				<span>|</span>
-				<a id="comment-focus"
-					><i class="far fa-comment-alt"></i> 댓글</a
-				>
+				<a id="comment-focus">
+					<i class="far fa-comment-alt"></i> 댓글보기
+				</a>
 				<span>|</span>
 				<a href="javascript:void(0)" id="write"><i class="fas fa-pencil-alt"></i> 댓글작성</a>
 			</div>
@@ -44,7 +44,7 @@
 		$(document).ready(function () {
 			$("#comment-focus").click(function () {
 				var offset = $("#comment-id").offset();
-				$("html").animate({ scrollTop: offset.top }, 5);
+				$("body").animate({ scrollTop: offset.top }, 5);
 			});
 		});
 

@@ -9,7 +9,5 @@ header h3 a i {
 	color: var(--color-white);
 }
 header h3 span {
-	display: table-cell;
-	vertical-align: middle;
-	padding-right: 2.2rem;
+	padding-right: 35px;
 }

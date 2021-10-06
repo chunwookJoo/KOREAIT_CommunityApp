@@ -14,7 +14,7 @@
 @yield('menu-title-back')
 	<header>
 		<h3 class="notice-title">
-			<a href="javascript:history.back();"><i class="fas fa-arrow-left" style="font-size: 1.2rem;"></i></a>
+		<a href="javascript:history.back();"><i class="fas fa-arrow-left" style="font-size: 1.2rem;"></i></a>
 			<span>{{$title}}</span>
 		</h3>
 	</header>

@@ -1,6 +1,6 @@
 {{-- 학생마당 학부게시판 글 --}}
-@extends('Layouts.ContentBottomNavigation')
 @extends('Layouts.MenuTitle-Back')
+@extends('Layouts.ContentBottomNavigation')
 <link href="{{ asset('/css/Board/DetailBoard.css') }}" rel="stylesheet" />
 @section('board-footer-content')
 
@@ -130,7 +130,7 @@
 									class="btn btn-primary"
 									id="delete-confirm"
 									onclick="delete_comment({{$student_id}}, {{ $comment['reply_id'] }})"
-									>삭제</a>
+								>삭제</a>
 							</div>
 						</div>
 					</div>

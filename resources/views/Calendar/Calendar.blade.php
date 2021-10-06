@@ -2,21 +2,21 @@
 @extends('Layouts.BottomNavigation')
 @extends('Layouts.MenuTitle')
 @section('content')
-<link href="{{ asset('/css/Calendar.css') }}" rel="stylesheet">
+<link href="{{ asset('/css/Calendar/Calendar.css') }}" rel="stylesheet">
 	<body>
 		@section('menu-title')
 		@endsection
 	<section>
 		@if(count($json_) > 0)
 		{{-- <small>*터치 시 상세보기가 가능합니다</small> --}}
-		<table class="calendar-table" style="width:100%;" >
+		<table class="calendar-table" >
 				<tr class="day">
 					<th> </th>
-					<th class="calendar-content">월</th>
-					<th class="calendar-content">화</th>
-					<th class="calendar-content">수</th>
-					<th class="calendar-content">목</th>
-					<th class="calendar-content">금</th>
+					<th>월</th>
+					<th>화</th>
+					<th>수</th>
+					<th>목</th>
+					<th>금</th>
 				</tr>
 				@for($index = 0; $index < 20; $index++)
 				<tr class="class">
@@ -29,7 +29,7 @@
 					@for($i = 0; $i < 5; $i++)
 						@if($temp_row_array[$i][$index] > 0)
 							@if($contents_arr[$i][$index] != "")
-								<td id="have-schedule-content" class="calendar-conten schedule-content subject{{$temp_class_array[$i][$index]}}" rowspan="{{$temp_row_array[$i][$index]}}" onclick="tdclick({{$temp_class_array[$i][$index]}})">
+								<td id="have-schedule-content" class="calendar-content schedule-content subject{{$temp_class_array[$i][$index]}}" rowspan="{{$temp_row_array[$i][$index]}}" onclick="tdclick({{$temp_class_array[$i][$index]}})">
 									<span class="show-subject subject-title-{{$temp_class_array[$i][$index]}}">
 										{!!$contents_arr[$i][$index]!!}
 									</span>

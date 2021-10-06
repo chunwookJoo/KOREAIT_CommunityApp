@@ -1,6 +1,5 @@
 @import url("../Style.css");
 .notice-title {
-	display: table;
 	position: fixed;
 	top: 0;
 	width: var(--width-100);
