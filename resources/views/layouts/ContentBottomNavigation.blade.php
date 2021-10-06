@@ -3,27 +3,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
-	/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"/>
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-	<link
-	rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-	/>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 	<link href="{{ asset('/css/Loading/Loading.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/css/Layouts/ContentBottomNavigation.css') }}" rel="stylesheet" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-	@yield('notice-board-content')
+	@yield('board-footer-content')
 	<footer>
 		<nav class="btn-fixed-bottom" style="display:flex">
 			<div>
 				@if ($is_like)
-					<a href="javascript:void(0)" style="color: blue" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
+					<a href="javascript:void(0)" style="color:#0d6efd" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@else
 					<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@endif
@@ -37,7 +30,6 @@
 			</div>
 		</nav>
 	</footer>
-	<script src="{{asset('js/layout/ContentBottom.js')}}"></script>
 	<script src="{{asset('js/loading/Loading.js')}}"></script>
 
 	<script>

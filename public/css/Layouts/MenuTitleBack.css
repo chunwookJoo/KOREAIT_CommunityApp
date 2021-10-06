@@ -1,21 +1,15 @@
 @import url("./MenuTitle.css");
-header {
-	margin: 0;
-}
 section {
-	padding: 5.5rem 1rem 0 1rem;
-	font-family: "Noto Sans KR", sans-serif;
+	padding: var(--article-section-base-padding);
+	font-family: var(--font-style);
 }
 header h3 a i {
-	display: inline-block;
-	height: 19px;
 	float: left;
-	padding-top: 0.5rem;
 	padding-left: 1rem;
-	color: #fff;
+	color: var(--color-white);
 }
 header h3 span {
-	display: inline-block;
-	float: none;
+	display: table-cell;
+	vertical-align: middle;
 	padding-right: 2.2rem;
 }

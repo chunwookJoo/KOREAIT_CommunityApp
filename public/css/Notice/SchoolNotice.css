@@ -1,11 +1,9 @@
 /* 학교 공지사항
 SchoolNotice */
 
-body {
-	margin: 0;
-}
 section h1 {
 	padding: 2rem 0;
+	margin: 0;
 	word-break: keep-all;
 	font-weight: bold;
 }
@@ -16,9 +14,9 @@ section div small {
 	font-weight: bold;
 }
 .writeday {
-	border-bottom: 1px solid #cfcfcf;
-	display: flex;
+	border-bottom: 1px solid var(--color-footer-navbar-icon);
 	justify-content: space-between;
+	display: flex;
 }
 .content {
 	padding-top: 1rem;

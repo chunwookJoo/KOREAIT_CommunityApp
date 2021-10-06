@@ -50,9 +50,14 @@
 	--height-100: 100%;
 
 	/* size */
+	--board-title-font-size: 1.4rem;
+	--article-section-base-padding: 5.1rem 1rem 0 1rem;
 	--board-li-base-padding: 0.5rem 1rem;
 	--board-ul-margin-bottom: 60px;
+
 	--size-button: 60px;
+
+	--font-size-button: 0.8rem;
 	--font-size-colorButton: 20px;
 	--base-space: 8px;
 

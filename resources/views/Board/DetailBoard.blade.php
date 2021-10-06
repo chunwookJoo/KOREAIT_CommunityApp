@@ -1,29 +1,24 @@
-@extends('Layouts.ContentBottomNavigation') @section('notice-board-content')
-<link href="{{ asset('/css/Board/DetailBoard.css') }}" rel="stylesheet" />
-<link
-	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-/>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{{-- 학생마당 학부게시판 글 --}}
+@extends('Layouts.ContentBottomNavigation')
 @extends('Layouts.MenuTitle-Back')
+<link href="{{ asset('/css/Board/DetailBoard.css') }}" rel="stylesheet" />
+@section('board-footer-content')
+
+@section('menu-title-back') @endsection
 <body>
-	@section('menu-title-back') @endsection
 	<section>
 		<h4>{{ $data["title"] }}</h4>
 		<div class="writeday">
 			<span>
 				@if ($data['author'])
-				<small>{{ $data["author"] }}</small>
+					<small>{{ $data["author"] }}</small>
 				@else
-				<h5>익명</h5>
+					<small>익명</small>
 				@endif
-				<span
-					><i class="far fa-thumbs-up"></i>
-					{{ $data["like_count"] }}</span
-				>
+				<span>
+					<i class="far fa-thumbs-up"></i>
+					{{ $data["like_count"] }}
+				</span>
 			</span>
 			<a
 				type="button"
@@ -57,21 +52,18 @@
 								type="button"
 								class="btn btn-secondary"
 								data-dismiss="modal"
-							>
-								취소
-							</button>
+							>취소</button>
 							@if($my_board)
-							<a
-								href="javascript:void(0)"
-								type="button"
-								class="btn btn-primary"
-								id="delete-confirm"
-								onclick="Deleteboard({{ $board_id }},{{
-									$student_id
-								}})"
-								value="삭제"
-								>삭제</a
-							>
+								<a
+									href="javascript:void(0)"
+									type="button"
+									class="btn btn-primary"
+									id="delete-confirm"
+									onclick="Deleteboard({{ $board_id }},{{
+										$student_id
+									}})"
+									value="삭제"
+								>삭제</a>
 							@endif
 						</div>
 					</div>
@@ -83,19 +75,14 @@
 		</div>
 	</section>
 	<div class="line"></div>
-	<h6>댓글 <i class="fas fa-chevron-right"></i></h6>
+	<h6 class="comment-info">댓글 <i class="fas fa-chevron-right"></i></h6>
 	<section class="comment">
 		<div>
 			<ul id="comment-id">
 				@foreach ($comment_datas as $comment)
 				<li>
-					<div>
-						{{ $comment["author"] }}
-						{{-- / {{ $comment["like_count"] }} --}}
-					</div>
-					<p>
-						{{ $comment["content"] }}
-					</p>
+					<p>{{ $comment["author"] }}</p>
+					<p>{{ $comment["content"] }}</p>
 					<div>
 						<small>{{ date('m-d h:i',strtotime($comment["time_write"])) }}</small>
 						{{-- 휴지통 클릭 --}}
@@ -120,18 +107,13 @@
 					aria-labelledby="exampleModalCenterTitle"
 					aria-hidden="true"
 				>
-					<div
-						class="modal-dialog modal-dialog-centered"
-						role="document"
-					>
+					<div class="modal-dialog modal-dialog-centered"	role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5
 									class="modal-title"
 									id="exampleModalLongTitle"
-								>
-									댓글 삭제
-								</h5>
+								>댓글 삭제</h5>
 							</div>
 							<div class="modal-body">
 								이 댓글을 삭제하시겠습니까?
@@ -141,18 +123,14 @@
 									type="button"
 									class="btn btn-secondary"
 									data-dismiss="modal"
-								>
-									취소
-								</button>
+								>취소</button>
 								<a
 									href="javascript:void(0)"
 									type="button"
 									class="btn btn-primary"
 									id="delete-confirm"
 									onclick="delete_comment({{$student_id}}, {{ $comment['reply_id'] }})"
-									>
-									삭제
-								</a>
+									>삭제</a>
 							</div>
 						</div>
 					</div>
@@ -165,16 +143,14 @@
 			<button
 				id="more-comment"
 				class="btn btn-outline-secondary"
-				onclick="more_comment({{ $board_id }},{{ $student_id }},'{{
-					$userName
-				}}')"
-			>
-				댓글 더보기
-			</button>
+				onclick="more_comment({{ $board_id }},{{ $student_id }},'{{$userName}}')"
+			>댓글 더보기</button>
 		</div>
 	</section>
 	<div class="form-group mx-sm-3" id="edit-comment" style="display:none">
-		<a href="javascript:void(0)" id="edit-comment-close"><i class="fas fa-times" style="font-size: 1rem"></i></a>
+		<a href="javascript:void(0)" id="edit-comment-close">
+			<i class="fas fa-times" style="font-size: 1rem"></i>
+		</a>
 		<input
 			type="text"
 			class="form-control"
@@ -183,14 +159,10 @@
 		/>
 		<button
 			id="create-comment"
-			onclick="create_comment({{ $board_id }},{{ $student_id }},'{{
-				$userName
-			}}')"
+			onclick="create_comment({{ $board_id }},{{ $student_id }},'{{$userName}}')"
 			type="submit"
 			class="btn btn-primary"
-		>
-			등록
-		</button>
+		>등록</button>
 	</div>
 	<script src="{{ asset('js/DetailBoard.js') }}"></script>
 	<script>
