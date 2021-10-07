@@ -1,0 +1,7 @@
+@import url("../Style.css");
+
+.semester-nav {
+	padding-top: 5.1rem;
+	position: fixed;
+	width: var(--width-100);
+}

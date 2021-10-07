@@ -1,4 +1,4 @@
-@import url("./modal.css");
+@import url("../Module/Modal.css");
 
 html {
 	height: var(--height-100);

@@ -1,10 +1,8 @@
-@extends('Layouts.BottomNavigation') @extends('Layouts.MenuTitle')
-@section('content')
+@extends('Layouts.BottomNavigation')
+@extends('Layouts.MenuTitle')
+<link href="{{ asset('css/Module/NavBar2.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/Haksa/SemesterPoint.css') }}" rel="stylesheet" />
-<link href="{{ asset('css/Board/BoardList.css') }}" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"/>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+@section('content')
 <body>
 	@section('menu-title') @endsection
 	<section class="semester-nav">
@@ -36,14 +34,6 @@
 			@endforeach
 			<tr id="avg" class="Hakgi{{ $Hakgi_index + 1 }} Hakgi">
 				<td colspan="6">취득학점 : {{$total_point[$Hakgi_index][0]}} &emsp; 평점계 : {{ $total_point[$Hakgi_index][1] }} &emsp; 평균 : {{ $total_point[$Hakgi_index][2] }}</td>
-				{{-- <td>
-					{{ $total_point[$Hakgi_index][1] }}
-				</td>
-				<td></td>
-				<td>평균</td>
-				<td>
-					{{ $total_point[$Hakgi_index][0] }}
-				</td> --}}
 			</tr>
 			@endforeach
 		</table>

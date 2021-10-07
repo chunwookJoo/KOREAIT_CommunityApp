@@ -1,0 +1,61 @@
+@import url("../Style.css");
+
+/* Nav_2 => 자유게시판 동아리게시판 건의사항 별명게시판 */
+.community-nav-2 {
+	border-bottom: 1px solid var(--color-navbar-border);
+	background-color: var(--color-footer-navbar-background);
+	display: flex;
+	justify-content: space-around;
+	font-weight: bold;
+}
+
+.community-nav-2 div {
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+
+.community-nav-2 div::-webkit-scrollbar {
+	display: none;
+}
+
+.community-nav-2 a {
+	display: inline-block;
+	line-height: 2.5rem;
+	height: 2.5rem;
+	font-size: 12px;
+	color: var(--color-footer-navbar-icon);
+	text-decoration: none;
+}
+
+.community-nav-2 span {
+	padding: 0 0.8rem;
+}
+
+.community-nav-2 a.nav2-on {
+	color: var(--color-navbar-on);
+	position: relative;
+}
+
+.community-nav-2 a.nav2-on::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+	width: 100%;
+	height: 3px;
+	background-color: var(--color-navbar-on);
+}
+
+.shadow-box-1,
+.shadow-box-2 {
+	position: relative;
+	width: 10%;
+}
+
+.shadow-box-1 i,
+.shadow-box-2 i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

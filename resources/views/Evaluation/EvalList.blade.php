@@ -1,8 +1,9 @@
-@extends('Layouts.BottomNavigation') @extends('Layouts.MenuTitle')
-@section('content')
+@extends('Layouts.BottomNavigation')
+@extends('Layouts.MenuTitle')
 <link href="{{ asset('css/Board/BoardList.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/Haksa/SemesterPoint.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/Haksa/EvalList.css') }}" rel="stylesheet" />
+@section('content')
 <body>
 	@section('menu-title') @endsection
 	<section class="semester-nav">

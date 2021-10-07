@@ -1,26 +1,24 @@
+@import url("../Module/SemesterNav.css");
+
 body section {
 	padding-top: 2rem;
-	font-family: "Noto Sans KR", sans-serif;
+	font-family: var(--font-style);
 }
-.semester-nav {
-	padding-top: 5.1rem;
-	position: fixed;
-	width: 100%;
-	font-family: "Noto Sans KR", sans-serif;
-}
+
 .attend-grid {
-	width: 100%;
+	width: var(--width-100);
 	padding: 12rem 0 5rem 0;
 	display: flex;
-	/* gap: 2.4rem 1.2rem; */
 	gap: 2.4rem 0;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 }
+
 .attend-grid p {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
+
 .attend-grid div {
 	text-align: center;
 	display: flex;
@@ -31,8 +29,9 @@ body section {
 	border-radius: 17px;
 	margin-left: calc((100% - (20% * 4)) / 4);
 	box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 50%);
-	background-color: #f3f3f3;
+	background-color: var(--color-footer-navbar-background);
 }
+
 .attend-grid div p {
 	margin: 0;
 	padding: 0.8rem 0.2rem 0.6rem 0.2rem;
@@ -41,10 +40,12 @@ body section {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
 h5 {
 	padding-top: 1rem;
 	text-align: center;
 }
+
 #attend-date {
 	padding: 0.3rem 0.2rem 0.2rem 0.2rem;
 	border-bottom: 1px solid #000;
@@ -52,20 +53,18 @@ h5 {
 	color: #fff;
 	font-size: 14px;
 }
+
 #attend-reason {
 	color: red;
 	font-weight: bold;
 }
+
 h2 {
 	padding: 9rem 1rem 0 1rem;
 	text-align: center;
 }
+
 .reason-count {
 	display: flex;
 	justify-content: space-around;
-}
-#modalBtn {
-	font-family: "Noto Sans KR", sans-serif;
-	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	border-color: #707070;
 }

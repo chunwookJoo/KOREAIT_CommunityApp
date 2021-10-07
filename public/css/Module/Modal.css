@@ -1,6 +1,6 @@
 @import url("../Style.css");
 
-/* 모달창 부분 */
+/* 로그인 비밀번호 찾기, 학번검색 모달창 부분 */
 #modalDialog {
 	margin-top: 2rem;
 	font-family: var(--font-style);

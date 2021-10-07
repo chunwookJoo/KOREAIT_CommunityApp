@@ -1,3 +1,5 @@
+@import url("../Style.css");
+
 h5 {
 	padding-top: 1.8rem;
 }
@@ -24,15 +26,15 @@ section footer p span {
 }
 
 section footer p .btn {
-	border: 1px solid #764ba2;
-	background-color: #764ba2;
-	color: #fff;
-	width: 100%;
+	border: 1px solid var(--color-button-border);
+	background-color: var(--color-button-background);
+	color: var(--color-white);
+	width: var(--width-100);
 }
 
 section footer #floatingTextarea2 {
-	width: 100%;
+	width: var(--width-100);
 	height: 20vh;
-	border: 1px solid #cfcfcf;
+	border: 1px solid var(--color-footer-navbar-icon);
 	border-radius: 8px;
 }
