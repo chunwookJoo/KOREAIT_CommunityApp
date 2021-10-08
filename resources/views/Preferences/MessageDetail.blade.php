@@ -1,7 +1,7 @@
 @extends('Layouts.MenuTitle-Back')
+@section('menu-title-back') @endsection
+<link href="{{ asset('/css/Preferences/MessageDetail.css') }}" rel="stylesheet" />
 <body>
-	@section('menu-title-back')
-	<link href="{{ asset('/css/Preferences/MessageDetail.css') }}" rel="stylesheet" />
 	<section>
 		<h4>{{ $response["title"] }}</h4>
 		<div class="writeday">
@@ -67,4 +67,4 @@
 	</section>
 	<script src="{{ asset('./js/Preferences/MessageDelete.js') }}"></script>
 </body>
-@endsection
+

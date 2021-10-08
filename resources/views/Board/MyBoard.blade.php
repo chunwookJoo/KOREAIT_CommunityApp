@@ -1,10 +1,9 @@
 {{-- 내 게시글 --}}
 @extends('Layouts.MenuTitle-Back')
 <link href="{{ asset('/css/Board/MyBoard.css') }}" rel="stylesheet" />
+@section('menu-title-back') @endsection
 
 <body>
-	@section('menu-title-back')
-	@endsection
 	<div class="searchbox">
 		<section>
 			<form action="{{route('MyBoardListPOST')}}" method="POST">

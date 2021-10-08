@@ -1,40 +1,36 @@
-body {
-	margin: 0;
-	max-width: 100%;
-	max-height: 100%;
-}
-a:active {
-	transform: scale(0.97);
-}
+@import url("../Style.css");
+
 body section {
 	padding-top: 5.1rem;
 }
+
 .preferences-container {
-	width: 100%;
 	padding: 3rem 4rem;
 	display: grid;
 	grid-gap: 40px;
 	grid-template-columns: 1fr;
 }
+
+.preferences-container a {
+	color: var(--color-writesearch-icon-background);
+}
+
+a:active {
+	transform: scale(0.97);
+}
+
 .preferences-container div {
 	padding-top: 1rem;
 	text-align: center;
 	height: 6rem;
-	border: 1px solid;
+	border: 1px solid var(--color-calendar-content-border);
+	border-radius: 17px;
 	box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 50%);
-	background-color: #f3f3f3;
+	background-color: var(--color-footer-navbar-background);
 }
-.preferences-container a {
-	text-decoration: none;
-	color: #080e54;
-	border-radius: 17px;
-}
-.preferences-container a div {
-	border-radius: 17px;
-}
+
 .preferences-container a div small {
 	font-size: 1rem;
-	font-family: monospace;
 	font-weight: bold;
-	font-family: "Noto Sans KR", sans-serif;
+	font-family: var(--font-style);
 }
