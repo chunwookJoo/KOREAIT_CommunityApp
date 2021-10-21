@@ -1,31 +1,35 @@
 /* Nav_1 => 공지사항, 자유게시판 */
-$("nav a").each(function () {
+$("nav a").each(function() {
 	if ($(this).attr("href") == $(document).attr("location").href)
 		$(this).addClass("nav1-on");
 	// else $(this).removeClass('nav1-on');
 });
-$(document).ready(function () {
-	$("nav a").on("click", function () {
+$(document).ready(function() {
+	$("nav a").on("click", function() {
 		$(this).addClass("nav1-on");
-		$(this).siblings().removeClass("nav1-on");
+		$(this)
+			.siblings()
+			.removeClass("nav1-on");
 	});
 });
 
 /* Nav_2 => 자유게시판 동아리게시판 건의사항 별명게시판 */
-$("nav a").each(function () {
+$("nav a").each(function() {
 	if ($(this).attr("href") == $(document).attr("location").href)
 		$(this).addClass("nav2-on");
 	// else $(this).removeClass('nav2-on');
 });
-$(document).ready(function () {
-	$("nav a").on("click", function () {
+$(document).ready(function() {
+	$("nav a").on("click", function() {
 		$(this).addClass("nav2-on");
-		$(this).siblings().removeClass("nav2-on");
+		$(this)
+			.siblings()
+			.removeClass("nav2-on");
 	});
 });
 
 var page = 2;
-$(this).scroll(function () {
+$(this).scroll(function() {
 	if ($(this).scrollTop() > $(document).height() - $(window).height() - 100) {
 		$.ajax({
 			type: "POST",
@@ -35,10 +39,11 @@ $(this).scroll(function () {
 				page_num: page,
 				page_size: "10",
 				board_group: getParam("group"),
-				searck_key: document.getElementById("title-content-search").value,
+				searck_key: document.getElementById("title-content-search")
+					.value,
 				search_value: $("#search_text").val()
 			},
-			success: function (result) {
+			success: function(result) {
 				for (var i = 0; i < result.length; i++) {
 					//현재 시간 및 리스트 시간 구하기
 					let today = new Date();
@@ -48,9 +53,9 @@ $(this).scroll(function () {
 					let result_date = result_format_date;
 
 					//현제 날짜와 리스트 날짜 비교
-					if(today_format_date == result_format_date){
+					if (today_format_date == result_format_date) {
 						result_date = fomat_time(list_date);
-					}else{
+					} else {
 						result_date = format_date(list_date, false);
 					}
 					$("#enters").append(
@@ -71,27 +76,26 @@ $(this).scroll(function () {
 						</div>`
 					);
 				}
-			},
+			}
 		});
 		page++;
 	}
 });
 
-function format_date(date_data, is_year){
+function format_date(date_data, is_year) {
 	let date_ = new Date(date_data);
 	let year = date_.getFullYear();
 	let month = date_.getMonth();
 	let date = date_.getDate();
-	if(is_year){
-		return `${year}-${month+1}-${date}`;
-	}else{
-		return `${month+1}-${date}`;
+	if (is_year) {
+		return `${year}-${month + 1}-${date}`;
+	} else {
+		return `${month + 1}-${date}`;
 	}
-
 }
 
-function fomat_time(time_data){
-	let date_ =  new Date(time_data);
+function fomat_time(time_data) {
+	let date_ = new Date(time_data);
 	let hours = date_.getHours();
 	let mintes = date_.getMintes();
 	return `${hours} : ${mintes}`;
