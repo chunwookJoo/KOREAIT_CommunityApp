@@ -283,7 +283,7 @@
 						>검색</button>
 					</div>
 
-					<!-- 학번검색 결과 (Success / Fail) -->
+					<!-- 학번 검색 결과 (Success / Fail) -->
 					{{-- 검색 성공 --}}
 					<div
 					class="modal fade"
@@ -318,7 +318,7 @@
 							</div>
 						</div>
 					</div>
-					{{-- 초기화 실패 --}}
+					{{-- 학번 검색 실패 --}}
 					<div
 					class="modal fade"
 					id="searchStudentIDFail"

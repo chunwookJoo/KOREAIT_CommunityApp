@@ -1,3 +1,4 @@
+{{-- 커뮤니티 메뉴 상단 로고 --}}
 <section class="community-home">
 	<div class="community-logo-img">
 		<img

@@ -68,6 +68,7 @@
 		</div>
 	</header>
 	<ul id="notice-list">
+		{{-- 게시판 검색 Collapse --}}
 		<div class="collapse" id="searchCollapse">
 			<form
 				id="list-search-form"

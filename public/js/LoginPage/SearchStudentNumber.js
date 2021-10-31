@@ -1,3 +1,5 @@
+// 학번 검색 후 성공 or 실패 모달 창 띄우는 코드
+
 var jumin3 = document.getElementById("jumin3");
 var jumin4 = document.getElementById("jumin4");
 var studentName = document.getElementById("studentNameInput");

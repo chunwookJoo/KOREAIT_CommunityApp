@@ -1,3 +1,5 @@
+// 비밀번호 초기화 성공 or 실패 모달창 띄우는 코드
+
 var resetBtn = document.getElementById("resetStudentPasswordButton");
 var resetStudentId = document.getElementById("studentIDInput");
 var resetSocialNumFrist = document.getElementById("jumin1");

@@ -1,4 +1,4 @@
-{{-- 내 게시글 --}}
+{{-- 메세지 리스트 --}}
 @extends('Layouts.MenuTitle-Back')
 @section('menu-title-back') @endsection
 <link href="{{ asset('/css/Preferences/MessageList.css') }}" rel="stylesheet" />
