@@ -1,5 +1,6 @@
 @extends('Layouts.MenuTitle-Back')
 <link href="{{ asset('css/Haksa/EvalQuestion.css') }}" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body>
 	<section>
@@ -19,7 +20,7 @@
 				<p>
 					<span>건의사항</span>
 				</p>
-				<textarea class="form-control" id="floatingTextarea2" name="suggestion" placeholder="내용을 입력하세요"></textarea>
+				<textarea class="form-control" id="floatingTextarea2" name="suggestion" placeholder="내용을 입력하세요">{{ $suggest }}</textarea>
 				<p>
 					<input class="btn" id="submit-btn" type="button" value="전송하기">
 				</p>
@@ -32,6 +33,10 @@
         var route='{{route('EvalListPost')}}';
 		var haksuCode =  '{{$haksuCode}}';
         var questitonSize= {{count($response)}};
+		/*
+		let textarea = document.getElementById("floatingTextarea2");
+		textarea.addEventListener("keydown", )
+		*/
     </script>
      <script src="{{ asset('js/Eval/PostEval.js') }}"></script>
 </body>
